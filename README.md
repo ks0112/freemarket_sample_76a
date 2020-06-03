@@ -104,7 +104,7 @@ Things you may want to cover:
 |first_name_kana|string|null: false|
 |birth_day|date|null: false|
 ### Association
-- belongs_to :destination dependent: :destroy
-- belongs_to :card dependent: :destroy
+- has_many :destination dependent: :destroy
+- has_many :card dependent: :destroy
 - has_many :items dependent: :destroy
 
