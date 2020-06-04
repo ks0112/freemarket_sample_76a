@@ -311,3 +311,45 @@
 //   height: 500px;
 //   bottom: 0;
 // }
+
+
+/*マイページ*/
+.l-side {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+}
+
+.mypage-nav-list li {
+  border-top: 1px solid #eee;
+}
+
+.mypage-nav-list-item.active {
+    background: #eee;
+    font-weight: 600;
+}
+
+.mypage-nav-list-item {
+  position: relative;
+  display: block;
+  min-height: 48px;
+  padding: 16px;
+  background:lightblue;
+  font-size: 14px;
+  color: #333;
+}
+
+.mypage-nav-list-item.active .icon-arrow-right {
+  color: #333;
+}
+
+.mypage-nav-list-item .icon-arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #ccc;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s;
+}
