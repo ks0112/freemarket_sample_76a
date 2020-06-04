@@ -251,4 +251,53 @@
       }
     }
   }
+  .banner {
+    width: 100%;
+    position: relative;
+    &__img {
+      width: 100%;
+      background-image: url(bg-appBanner-pict.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+    .banner-content {
+      width: 700px;
+      height: 300px;
+      margin: 0 auto;
+      padding-top: 100px;
+      text-align: center;
+      &__title {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.2;
+        color: #fff;
+      }
+      &__text {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 35px;
+        color: #fff;
+        line-height: 1.77778;
+        margin: 16px 0 0 0;
+      }
+    }
+    .banner-btn{
+      width: 700px;
+      height: 100px;
+      padding-top: 10px;
+      align-items: center;
+      &__A {
+        width: 180px;
+        height: 50px;
+      }
+      &__B {
+        width: 180px;
+        height: 50px;
+        margin-left: 20px;
+      }
+      img:hover {
+        opacity: 0.50;
+      }
+    }
+  }
 }
