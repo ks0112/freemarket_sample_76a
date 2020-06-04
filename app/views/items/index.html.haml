@@ -150,7 +150,7 @@
 
 
 /*出品ボタン*/
-%a{:href => "#"}
-  .purchase-btn
-    %span.purchase-btn__text 出品する
-    %img.purchase-btn__icon{:src => "/assets/icon_camera.png"}
+-# %a{:href => "#"}
+.purchase-btn
+  %span.purchase-btn__text 出品する
+  =link_to image_tag("/assets/icon_camera.png", class:"purchase-btn__icon")

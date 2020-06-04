@@ -314,6 +314,8 @@
   right: 32px;
   position: fixed;
   padding: 15px;
+  text-decoration: none;
+  cursor: pointer;
   &__text {
     color: #fff;
     display: block;
@@ -323,5 +325,6 @@
   }
   &__icon {
     width: 60%;
+    text-decoration: none;
   }
 }
