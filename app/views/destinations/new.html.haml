@@ -1,64 +1,3 @@
-/*ヘッダー*/
-.header
-  .header__inner
-    .header__inner__main
-      %h1.header__inner__main__icon
-        %a{:href => "/"}
-          %img{:src => "/assets/logo.png", width: "140"}
-      .header__inner__main__searchbox
-        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-          %input#searchInput.searchbox--input{:name => "key", :placeholder => "キーワードから探す"}
-          %button{:type => "submit"}
-            .header__inner__main__searchbox__icon
-              %img{:src => "/assets/icon-search 1.png", height: "17"}
-    .header__inner__nav
-      %ul.header__inner__nav__listleft
-        %li.header__inner__nav__listleft__item.listleft__item--first
-          %a#catBtn{:href => "#"} カテゴリー
-        %li.header__inner__nav__listleft__item
-          %a#brandBtn{:href => "#"} ブランド
-          %ul.brandsPulldown.displayNone
-      %ul.header__inner__nav__listright
-        %li.header__inner__nav__listright__item.listright__item--login
-          %a{:href => "#"} ログイン
-        %li.header__inner__nav__listright__item.listright__item--new
-          %a{:href => "#"} 新規会員登録
-
-/*フッダー*/
-.footer
-  %ul.footer__contents
-    %li.footer__contents__content
-      %h2.footer__contents__content__head FURIMAについて
-      %ul
-        %li
-          %a{:href => "#"} 会社概要（運営会社）
-        %li
-          %a{:href => "#"} プライバシーポリシー
-        %li
-          %a{:href => "#"} FURIMA利用規約
-        %li
-          %a{:href => "#"} ポイントに関する特約
-    %li.footer__contents__content
-      %h2.footer__contents__content__head FURIMAを見る
-      %ul
-        %li
-          %a{:href => "#"} カテゴリー一覧
-        %li
-          %a{:href => "#"} ブランド一覧
-    %li.footer__contents__content
-      %h2.footer__contents__content__head ヘルプ&ガイド
-      %ul
-        %li
-          %a{:href => "#"} FURIMAガイド
-        %li
-          %a{:href => "#"} FURIMAロゴ利用ガイドライン
-        %li
-          %a{:href => "#"} お知らせ
-  .footer__logo
-    %a{:href => "/"}
-      %img{:src => "/assets/logo-white.png", width: "160"}
-  %p © FURIMA
-
 /*出品ボタン*/
 %a{:href => "#"}
   .purchase-btn
@@ -146,5 +85,7 @@
             %i.fas.fa-chevron-right
   .mypage-main__right
     .mypage-main__right__title 
-      %h1 タイトル名
-    .mypage-main__right__main 対応するページを記載
+      %h1 ログアウト
+    .mypage-main__right__main
+      %button.mypage-main__right__main__logout{:type => "submit"} ログアウト
+      -# %input{:name => "__csrf_value", :type => "hidden", :value => "#"}

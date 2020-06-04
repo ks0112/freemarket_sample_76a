@@ -4,6 +4,12 @@
 
 .header {
   padding: 0 60px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  background-color: white;
   &__inner {
     max-width: 1040px;
     width: 100%;
@@ -199,20 +205,20 @@
 
 
 .mypage-top{
-  width: 80%;
+  margin-top: 100px;
+  width: 100%;
   height:100px;
-  margin: 0 auto;
-  text-align: center;
+  padding: 0 20%;
   & h1 {
     font-size: 50px;
     line-height: 100px;
+    text-align: center;
   }
 }
 .mypage-main{
   display: flex;
   padding: 0 20%;
   &__left {
-    // float: left;
     width: 280px;
     margin: 0 40px 0 0;
     &__nav {
@@ -223,9 +229,6 @@
         text-align: center;
       }
       &__list {
-        // & li {
-        //   border-top: 1px solid black;
-        // }
         &__item {
           position: relative;
           display: block;
@@ -253,15 +256,26 @@
     width: 100%;
     height: 100%;
     &__title{
-      height: 100px;
+      height: 50px;
       width: 100%;
       border: solid #3CCACE;
       margin-bottom: 10px;
+      & h1 {
+        font-size: 25px;
+        line-height: 50px;
+        text-align: center;
+      }
     }
     &__main{
-      height: 500px;
+      height: 100%;
       width: 100%;
       border: solid #3CCACE;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 10px;
+      &__logout{
+        border: solid 2px #3CCACE;
+      }
     }
   }  
 }
