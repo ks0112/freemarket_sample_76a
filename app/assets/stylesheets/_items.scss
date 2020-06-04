@@ -1,7 +1,254 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.test{
-  color: red;
+.main {
+  background-color: white;
+  &__Visual {
+    width: 100%;
+    height: 560px;
+    background-image: url(bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    padding: 0 60px 0 60px;
+    display: flex;
+    align-items: center;
+  }
+  .main-content {
+    max-width: 1280px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 35px 0 0 0;
+    position: absolute;
+    top: 170px;
+    left: 80px;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 60px;
+      line-height: 1.2;
+      color: #fff;
+    }
+    &__text {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.77778;
+      margin: 16px 0 0 0;
+    }
+  }
+  .main-btn{
+    width: 1280px;
+    height: 100px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    &__A {
+      width: 180px;
+      height: 50px;
+    }
+    &__B {
+      width: 180px;
+      height: 50px;
+      margin-left: 20px;
+    }
+    img:hover {
+      opacity: 0.50;
+    }
+  }
+  .main-introduction {
+    width: 100%;
+    height: 600px;
+    margin-top: 50px;
+    &__title {
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    &__title:after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__lists {
+      width: 1050px;
+      height: 500px;
+      display: flex;
+      margin: 0 auto;
+    }
+    &__list {
+      width: 310px;
+      height: 500px;
+      margin: 0 20px;
+      position: relative;
+      &-img {
+        width: 310px;
+        height: 310px;
+      }
+      &-img2 {
+        width: 200px;
+        height: 310px;
+        padding-left: 55px;
+      }
+      &-number {
+        background-color: #3CCACE;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      &-text {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 50px;
+        margin-top: 10px;
+        text-align: center;
+      }
+      &-text span {
+        color: #3CCACE;
+      }
+      &-text1 {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 16px 0 0;
+      }
+      &-text2 {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 16px 0 16px 40px;
+      }
+      &-text3 {
+        line-height: 1.5;
+        margin: 38px 0 10px;
+        font-size: 19px;
+        font-weight: bold;
+        text-align: center;
+      }
+      &-text4 {
+        font-size: 17px;
+        font-weight: 200;
+        text-align: left;
+        padding-bottom: 40px;
+      }
+    }
+  }
+  .middle {
+    width: 100%;
+    position: relative;
+    &__img {
+      width: 100%;
+      height: 400px;
+      background-image: url(bg-topMiddleDl-pict.jpg);
+      background-size: cover;
+      background-position: bottom right;
+    }
+    .middle-content {
+      width: 700px;
+      height: 300px;
+      margin: 0 auto;
+      padding: 35px 0 0 0;
+      position: absolute;
+      top: 80px;
+      left: 200px;
+      &__title {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 27px;
+        font-weight: bold;
+        line-height: 1.2;
+        color: #fff;
+      }
+      &__text {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        color: #fff;
+        line-height: 1.77778;
+        margin: 16px 0 0 0;
+      }
+    }
+    .middle-btn{
+      width: 700px;
+      height: 100px;
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      &__A {
+        width: 180px;
+        height: 50px;
+      }
+      &__B {
+        width: 180px;
+        height: 50px;
+        margin-left: 20px;
+      }
+      img:hover {
+        opacity: 0.50;
+      }
+    }
+  }
+  .product {
+    padding: 50px 0 50px 0;
+    background-color: #f8f8f8;
+    &__head {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    &__body {
+      width: 840px;
+      height: 300px;
+      margin: 0 auto;
+      &-title {
+        font-weight: bold;
+        font-size: 24px;
+        color: #3CCACE;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    &__list {
+      height: 260px;
+      width: 220px;
+      text-align: center;
+      float: left;
+      margin: 0 30px;
+      &-img {
+        height: 170px;
+        background-color: white;
+      }
+      &__detail {
+        height: 58px;
+        background-color: white;
+        color: #333;
+        padding: 16px;
+        &-name {
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+        }
+        &-price {
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+          display: flex;
+          justify-content: space-between;
+        }
+        &-tax {
+          line-height: 1.5;
+          font-size: 10px;
+          text-align: left;
+        }
+      }
+    }
+  }
 }
