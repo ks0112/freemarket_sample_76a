@@ -3,22 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // ヘッダー部分後ほど削除
-.pcheader{
-  height:100px;
-  text-align: center;
-  background-color: blue;
-  font-size: 30px;
-}
-.breadCrumsbs{
-  height: 55px;
-  text-align: center;
-  background-color:red;
-  font-size: 20px;
-}
+
 // ここから詳細画面記述
 .main{
   background-color: #f8f8f8;
   height: 100%;
+  margin-top: 100px;
 }
   .showmain{
     padding: 40px;
@@ -143,12 +133,4 @@
           font-size: 22px;
           position: relative;
         }
-      }
-      // フッター部分後ほど削除
-      .footer{
-        height:600px;
-  text-align: center;
-  background-color: yellow;
-  font-size: 40px;
-  text-align: center;
       }
