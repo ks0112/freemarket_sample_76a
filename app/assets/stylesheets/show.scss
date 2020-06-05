@@ -1,0 +1,154 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ヘッダー部分後ほど削除
+.pcheader{
+  height:100px;
+  text-align: center;
+  background-color: blue;
+  font-size: 30px;
+}
+.breadCrumsbs{
+  height: 55px;
+  text-align: center;
+  background-color:red;
+  font-size: 20px;
+}
+// ここから詳細画面記述
+.main{
+  background-color: #f8f8f8;
+  height: 100%;
+}
+  .showmain{
+    padding: 40px;
+    margin: 0 auto;
+  }
+    .contentLeft{
+      margin: 0;
+      padding: 0;
+    }
+    .contentRight{
+      width: 700px;
+      margin: 0 auto;
+    }
+      .topcontent{
+        margin: 0;
+        padding: 0;
+      }
+        .itemBox{
+          background-color: #fff;
+          padding: 24px 40px 40px;
+          &__name{
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+          }
+          &__body{
+            margin: 16px 0 0;
+            &__image{
+              display:flex;
+              position: relative;
+              &__mainimage{
+                display: flex;
+                flex-direction: column;
+                width: 560px;
+                align-items: center;
+                margin: 0 auto;
+                &__subimage{
+                  display:flex;
+                  justify-content: center;
+                  margin-top: 10px;
+                  &__subimagebody{
+                    width: 40%;
+                    margin: 0 10px 0 0;
+                  }
+                }
+              }
+            }
+          }
+          &__price{
+            margin: 24px 0 24px;
+            text-align:center;
+            display: flex;
+            flex-direction: column;
+            &__pricemain {
+              font-size:46px;
+              font-weight: bold;
+              margin: 0 10px 0 0;
+            }
+            &__price-detail{
+              font-size: 16px;
+            }
+          }
+          &__itemDteil{
+            line-height :1.5;
+            font-size: 18px;
+            margin-bottom: 30px;
+          }
+          &__table{
+            margin-bottom: 20px;
+            &--main-table{
+              width: 100%;
+              height: 375px;
+              border-collapse: collapse;
+                &--tabletitle {
+                width: 20%;
+                background-color: #eee;
+                font-weight: 400;
+                padding: 8px;
+                border: 1px solid #dedede;
+                font-size: 14px;
+                text-align: center;
+                }
+                &--tableinfo {
+                  width:61%;
+                  padding: 15px 15px;
+                  border: 1px solid #dedede;
+                  font-size: 14px;
+                  &--tableinfotag{
+                    text-decoration: none;
+                    color: #3CCACE;
+                  }
+                }
+              }
+            }
+          }
+        // 下部の商品移動の欄
+      .links{
+        list-style: none;
+        &__left{
+          float: left;
+          &--leftpath{
+            text-decoration: none;
+            color: #3CCACE;
+          }
+        }
+        &__right{
+          float: right;
+          &--rightpath{
+            text-decoration: none;
+            color: #3CCACE;
+          }
+        }
+      }
+      // 下部のもっと見る
+      .relatedItems{
+        &__Itemsinfo{
+          display: block;
+          margin: 60px 0 8px;
+          color: #3CCACE;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 22px;
+          position: relative;
+        }
+      }
+      // フッター部分後ほど削除
+      .footer{
+        height:600px;
+  text-align: center;
+  background-color: yellow;
+  font-size: 40px;
+  text-align: center;
+      }
