@@ -1,0 +1,177 @@
+.header{
+  height: 160px;
+  background-color: #f8f8f8;
+  &__headerimage {
+    text-align: center;
+    &__logoimage{
+      margin: 40px 0 0;
+    }
+  }
+}
+
+.purc-main{
+  background-color: #f8f8f8;
+  height: 100%;
+  margin-top: 160px;
+}
+.singlemain{
+  display: block;
+  width: 900px;
+  margin: 0 auto;
+}
+.buyhead{
+  text-align: center;
+  font-weight: bold;
+  padding: 30px;
+  font-size: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.buycontent{
+  margin: 0;
+  &__innner{
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #f8f8f8;
+    &__itembox{
+      display:flex;
+      &__buyimage{
+        margin-left: 200px;
+      }
+      &__buytext{
+        font-size: 20px;
+        margin: 0;
+        padding:0 0 8px;
+        line-height: 1.5;
+        text-align: left;
+        &__buyname{
+          margin-left: 20px;
+          padding: 0 0 10px;
+        }
+        &__buymoney{
+          margin-left: 20px;
+          font-weight: bold;
+          &__totalbox{
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+
+.total{
+  margin: 0px;
+  &__totalinn{
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #fff;
+    border-bottom: 1px solid #f8f8f8;
+    &__totalbox{
+      display: flex;
+      &__totaltext{
+        font-size: 25px;
+        margin-left: 150px;
+        font-weight: bold;
+        padding: 5px 0 0;
+      }
+      &__totalmoney{
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 200px;
+        
+      }
+    }
+  }
+}
+
+.payment{
+  margin: 0px;
+  &__payinn{
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #fff;
+    &__paymentbox{
+      font-weight: bold;
+      font-size: 20px;
+      margin-left: 150px;
+      &__paymentlink{
+        padding-top: 10px;
+        font-size: 15px;
+        font-weight: lighter;
+        &__paylinkicon{
+          text-decoration: none;
+          color: #0000ff;
+        }
+        &__paylinkicon:hover{
+          color:red;
+        }
+      }
+    }
+  }
+}
+
+.address{
+  margin: 0px;
+  &__addressinn{
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #fff;
+    border-bottom: 1px solid #f8f8f8;
+    &__addressbox{
+      font-weight: bold;
+      font-size: 20px;
+      margin-left: 150px;
+      &__addresslink{
+        padding-top: 10px;
+        font-size: 15px;
+        font-weight: lighter;
+        &__addlinkicon {
+          text-decoration: none;
+          color: #0000ff;
+        }
+        &__addlinkicon:hover{
+          color:red;
+        }
+      }
+    }
+  }
+}
+
+.purcbtn{
+  margin: 0px;
+  text-align: center;
+  padding: 50px;
+  &__submitbtn{
+    width: 450px;
+  height: 50px;
+  padding: 0 30px;
+  margin-left: 15px;
+  background-color: #cccccc;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius : 5%; 
+  box-shadow    : 5px 5px 3px #666666; 
+  color: #4dffff;
+  
+  }
+  &__submitbtn:hover{
+  box-shadow    : none;
+  color         : #cccccc;
+  background    : #4dffff;
+  }
+}
+
+.payfooter{
+  margin:0px;
+  height: 100%;
+  padding:20px;
+  &__footerimage{
+    text-align: center;
+  }
+}
+
+
+ 
