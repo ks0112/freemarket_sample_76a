@@ -1,1 +1,65 @@
-test
+.container
+  .header
+    = link_to image_tag("logo.png", class:"header__logo"), "/"
+  .main
+    %h1.registration 会員情報入力
+    .register-form
+      = form_with url: '#' do |f|
+        .field
+          .field__label
+            = f.label :ニックネーム
+            %span.form-require 必須
+          .field__input
+            = f.text_field :nickname, autofocus: true
+        .field
+          .field__label
+            = f.label :メールアドレス
+            %span.form-require 必須
+          .field__input
+            = f.email_field :email
+        .field
+          .field__label
+            = f.label :パスワード
+            %i (英数字7文字以上)
+            %span.form-require 必須
+          .field__input
+            = f.password_field :password, autocomplete: "off"
+        .field
+          .field__label
+            = f.label :パスワード
+            %i (確認)
+            %span.form-require 必須
+          .field__input
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .field
+          .field__label
+            = f.label :お名前
+            (全角)
+            %span.form-require 必須
+          .field__input
+            .field__input__half
+              = f.text_field :family_name
+            .field__input__half
+              = f.text_field :first_name
+        .field
+          .field__label
+            = f.label :お名前カナ
+            (全角)
+            %span.form-require 必須
+          .field__input
+            .field__input__half
+              = f.text_field :family_name_kana
+            .field__input__half
+              = f.text_field :first_name_kana
+        .field
+          .field__label
+            = f.label :生年月日
+            %span.form-require 必須
+          .field__input
+          != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+
+        .actions
+          = f.submit "新規会員登録", class: 'btn'
+
+  .footer
+    = link_to image_tag("logo-white.png",class:"footer__logo"), "/"

@@ -1,0 +1,22 @@
+.container
+  .header
+    = link_to image_tag("logo.png", class:"header__logo"), "/"
+
+  .main
+    .register-form
+      = form_with url: '#' do |f|
+        .field
+          .field__label
+            = f.label :メールアドレス
+          .field__input
+            = f.email_field :email, autofocus: true
+          .field
+            .field__label
+              = f.label :パスワード
+            .field__input
+              = f.password_field :password, autocomplete: "off"
+          .actions
+            = f.submit "ログイン", class: 'btn'
+
+  .footer
+    = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
