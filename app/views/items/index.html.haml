@@ -64,80 +64,86 @@
         %h2.main-introduction__list-text3
           様々な支払いに対応
         %p.main-introduction__list-text4 お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
   .product
-    %h1.product__head ピックアップカテゴリー
+    %h1.product__head ピックアップカテゴリー  
     .product__body
-      %h2.product__body-title 新規投稿商品
-      .product__list
-        .product__list-img
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-        .product__list__detail
-          %h3.product__list__detail-name product1
-          %ul.product__list__detail-price
-            %li 30000円
-            %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p.product__list__detail-tax (税込)
-      .product__list
-        .product__list-img
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-        .product__list__detail
-          %h3.product__list__detail-name product2
-          %ul.product__list__detail-price
-            %li 30000円
-            %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p.product__list__detail-tax (税込)
-      .product__list
-        .product__list-img
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
-        .product__list__detail
-          %h3.product__list__detail-name product3
-          %ul.product__list__detail-price
-            %li 30000円
-            %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p.product__list__detail-tax (税込)
-  .product
-    %h1.product__head ピックアップブランド
-    .product__body
-      %h2.product__body-title アーカイバ
-      .product__list
-        .product__list-img
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-        .product__list__detail
-          %h3.product__list__detail-name product1
-          %ul.product__list__detail-price
-            %li 30000円
-            %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p.product__list__detail-tax (税込)
-      .product__list
-        .product__list-img
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-        .product__list__detail
-          %h3.product__list__detail-name product2
-          %ul.product__list__detail-price
-            %li 30000円
-            %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p.product__list__detail-tax (税込)
-      .product__list
-        .product__list-img
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
-        .product__list__detail
-          %h3.product__list__detail-name product3
-          %ul.product__list__detail-price
-            %li 30000円
-            %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p.product__list__detail-tax (税込)
+      %h2.product__body__body-title 新規投稿商品
+      .product__body__lists 
+        - @item.each do |item|
+          .product__body__lists__list
+            .product__body__lists__list__list-img
+              = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
+            .product__body__lists__list__detail
+              %h3.product__lists__list__detail-name 
+                = item.name
+                %ul.product__lists__list__detail-price
+                  %li
+                    =item.price+'円'
+                  -# %li
+                  -#   %i.fa.fa-star.likeIcon
+                  -#   0
+                %p.product__lists__list__detail-tax (税込)
+  -#     .product__list
+  -#       .product__list-img
+  -#         = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+  -#       .product__list__detail
+  -#         %h3.product__list__detail-name product2
+  -#         %ul.product__list__detail-price
+  -#           %li 30000円
+  -#           %li
+  -#             %i.fa.fa-star.likeIcon
+  -#             0
+  -#         %p.product__list__detail-tax (税込)
+  -#     .product__list
+  -#       .product__list-img
+  -#         = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+  -#       .product__list__detail
+  -#         %h3.product__list__detail-name product3
+  -#         %ul.product__list__detail-price
+  -#           %li 30000円
+  -#           %li
+  -#             %i.fa.fa-star.likeIcon
+  -#             0
+  -#         %p.product__list__detail-tax (税込)
+  -# .product
+  -#   %h1.product__head ピックアップブランド
+  -#   .product__body
+  -#     %h2.product__body-title アーカイバ
+  -#     .product__list
+  -#       .product__list-img
+  -#         = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
+  -#       .product__list__detail
+  -#         %h3.product__list__detail-name product1
+  -#         %ul.product__list__detail-price
+  -#           %li 30000円
+  -#           %li
+  -#             %i.fa.fa-star.likeIcon
+  -#             0
+  -#         %p.product__list__detail-tax (税込)
+  -#     .product__list
+  -#       .product__list-img
+  -#         = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+  -#       .product__list__detail
+  -#         %h3.product__list__detail-name product2
+  -#         %ul.product__list__detail-price
+  -#           %li 30000円
+  -#           %li
+  -#             %i.fa.fa-star.likeIcon
+  -#             0
+  -#         %p.product__list__detail-tax (税込)
+  -#     .product__list
+  -#       .product__list-img
+  -#         = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+  -#       .product__list__detail
+  -#         %h3.product__list__detail-name product3
+  -#         %ul.product__list__detail-price
+  -#           %li 30000円
+  -#           %li
+  -#             %i.fa.fa-star.likeIcon
+  -#             0
+  -#         %p.product__list__detail-tax (税込)
+
   .banner
     .banner__img
       .banner-content
