@@ -57,7 +57,7 @@
                 %span.form-require 必須
               .form-group__field__input
                 .form-group__field__input__select
-                  = f.select :status, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6] ], prompt: "選択してください"
+                  = f.collection_select :status, Status.all, :id, :name
                   %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
                     %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
           %hr.border/
@@ -71,7 +71,7 @@
                 %span.form-require 必須
               .form-group__field__input
                 .form-group__field__input__select
-                  = f.select :cost, [ ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ], prompt: "選択してください"
+                  = f.collection_select :cost, Cost.all, :id, :name
                   %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
                     %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
             .form-group__field
@@ -79,26 +79,32 @@
                 = f.label :発送元の地域
                 %span.form-require 必須
               .form-group__field__input
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                .form-group__field__input__select
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
             .form-group__field
               .form-group__field__label
                 = f.label :発送までの日数
                 %span.form-require 必須
               .form-group__field__input
                 .form-group__field__input__select
-                  = f.select :days, [ ["1~2日で発送",1], ["2~3日で発送", 2], ["4~7日で発送", 3 ] ], prompt: "選択してください"
+                  = f.collection_select :days, Days.all, :id, :name
                   %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
                     %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
           %hr.border/
 
         .price
-          %p価格(¥300〜9,999,999)
-          .price__form-group__field
-            .price__form-group__field__label
-              = f.label :販売価格
-              %span.form-require 必須
-            .price__form-group__field__input
-              = f.number_field :price, autocomplete: "off", placeholder: "0"
+          .form-group
+            %p価格 (¥300〜9,999,999)
+            .form-group__field
+              .form-group__field__content
+                .form-group__field__label
+                  = f.label :販売価格
+                  %span.form-require 必須
+                %span.yen ¥
+                .price__form-group__field__input
+                  = f.number_field :price, autocomplete: "off", placeholder: "0", class: "number-field"
           %hr.border/
 
         .actions
