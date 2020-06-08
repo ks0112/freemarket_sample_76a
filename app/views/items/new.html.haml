@@ -1,22 +1,109 @@
-.container
+.sell-container
+
   .header
     = link_to image_tag("logo.png", class:"header__logo"), "/"
 
-  .main
-    .register-form
+  .inner
+    .exhibition-form
       = form_with url: '#' do |f|
-        .field
-          .field__label
-            = f.label :メールアドレス
-          .field__input
-            = f.email_field :email, autofocus: true
-          .field
-            .field__label
-              = f.label :パスワード
-            .field__input
-              = f.password_field :password, autocomplete: "off"
-          .actions
-            = f.submit "ログイン", class: 'btn'
+
+        .upload-image
+          .form-group
+            .form-group__field
+              .form-group__field__label
+                = f.label :出品画像
+                %span.form-require 必須
+              .form-group__field__input
+                = f.file_field :image_id
+          %hr.border/
+
+        .goods
+          .form-group
+            .form-group__field
+              .form-group__field__label
+                = f.label :商品名
+                %span.form-require 必須
+              .form-group__field__input
+                = f.text_field :name, autocomplete: "off", placeholder: "40文字まで", class: "text-field"
+            .form-group__field
+              .form-group__field__label
+                = f.label :商品の説明
+                %span.form-require 必須
+              .form-group__field__input
+                = f.text_area :description, rows: "6", class: "text-area"
+          %hr.border/
+
+        .details
+          .form-group
+            %p 商品の詳細
+            .form-group__field
+              .form-group__field__label
+                = f.label :カテゴリー
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.select :category_id, [ ["レディース",1], ["メンズ", 2], ["", 3 ] ,["", 4], ["", 5], ["", 6] ], prompt: "選択してください"
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .form-group__field
+              .form-group__field__label
+                = f.label :ブランド
+                %span.form-optional 任意
+              .form-group__field__input
+                = f.text_field :brand_id, autocomplete: "off", class: "text-field"
+            .form-group__field
+              .form-group__field__label
+                = f.label :商品の状態
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.select :status, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6] ], prompt: "選択してください"
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          %hr.border/
+
+        .delivery
+          .form-group
+            %p 配送について
+            .form-group__field
+              .form-group__field__label
+                = f.label :配送料の負担
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.select :cost, [ ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ], prompt: "選択してください"
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .form-group__field
+              .form-group__field__label
+                = f.label :発送元の地域
+                %span.form-require 必須
+              .form-group__field__input
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+            .form-group__field
+              .form-group__field__label
+                = f.label :発送までの日数
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.select :days, [ ["1~2日で発送",1], ["2~3日で発送", 2], ["4~7日で発送", 3 ] ], prompt: "選択してください"
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          %hr.border/
+
+        .price
+          %p価格(¥300〜9,999,999)
+          .price__form-group__field
+            .price__form-group__field__label
+              = f.label :販売価格
+              %span.form-require 必須
+            .price__form-group__field__input
+              = f.number_field :price, autocomplete: "off", placeholder: "0"
+          %hr.border/
+
+        .actions
+          = f.submit "出品する", class: 'exhibition', tabindex: "0"
+          = f.submit "下書きに保存", class: 'save', tabindex: "0"
 
   .footer
     = link_to image_tag("logo-white.png",class:"footer__logo"), "/"

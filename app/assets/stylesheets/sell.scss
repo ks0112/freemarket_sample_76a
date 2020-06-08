@@ -1,0 +1,127 @@
+.sell-container {
+  background-color:#f5f5f5;
+  .header {
+    height: 120px;
+    text-align: center;
+    &__logo {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      margin: 40px 0 0;
+    }
+  }
+  .inner {
+    .exhibition-form {
+      background-color: rgb(255, 255, 255);
+      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+      p {
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      .form-group {
+        padding: 40px;
+        &__field {
+          margin-top: 32px;
+          &__label {
+            align-items: center;
+            display: flex;
+            .form-require {
+              background-color: #ff0211;
+              color: #fff;
+              border-radius: 2px;
+              display: inline-block;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.4em;
+              margin: 0;
+            }
+          }
+          &__input {
+            margin-top: 16px;
+            .text-field {
+              align-items: center;
+              display: inline-flex;
+              width: 100%;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              font-family: inherit;
+              font-size: inherit;
+              height: 48px;
+              margin: 0;
+              outline: none;
+              padding: 0 16px;
+            }
+            .text-area {
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              color: #222;
+              font-size: 16px;
+              margin: 0;
+              outline: none;
+              padding: 13px 16px;
+              resize: vertical;
+              vertical-align: middle;
+              width: 100%;
+            }
+            &__select {
+              position: relative;
+              width: inherit;
+              select {
+                -webkit-appearance: none;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 16px;
+                height: 48px;
+                line-height: 1;
+                margin: 0;
+                outline: none;
+                padding: 0 56px 0 16px;
+                width: 100%;
+              }
+              svg {
+                bottom: 0;
+                fill: rgb(136, 136, 136);
+                fill-rule: evenodd;
+                margin: auto;
+                pointer-events: none;
+                position: absolute;
+                right: 16px;
+                top: 0;
+                height: 24;
+              }
+            }
+          }
+        }
+      }
+      .border {
+        border-top-color: #efefef;
+        border-left: 0 solid #efefef;
+        border-bottom: 0 solid #efefef;
+        border-right: 0 solid #efefef;
+        border-top-style: solid;
+        margin: 0;
+      }
+    }
+  }
+
+  .footer {
+    background-color:#f5f5f5;
+    text-align: center;
+    &__logo {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      padding: 40px 0;
+    }
+  }
+}
