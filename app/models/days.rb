@@ -1,0 +1,2 @@
+class Days < ApplicationRecord
+end
