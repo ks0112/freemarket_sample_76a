@@ -1,11 +1,54 @@
-クレジットカード情報
-.form-content
-  %br
-  = "**** **** **** " + @default_card_information.last4
-  %br
-  - exp_month = @default_card_information.exp_month.to_s
-  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-  = exp_month + " / " + exp_year
-  = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
-    %input{ type: "hidden", name: "card_id", value: "" }
-    %button.delete-btn 削除する
+.mypage-top
+  %h1 マイページ
+.mypage-main
+  .mypage-main__left
+    %nav.mypage-main__left__nav
+      %h3.mypage-main__left__nav__head 詳細
+      %ul.mypage-main__left__list
+        %li
+          %a.mypage-main__left__nav__list__item.active{:href => "#"}
+            プロフィール
+            %i.fas.fa-chevron-right
+        %li
+          %a.mypage-main__left__nav__list__item{:href => "#"}
+            発送元・お届け先住所変更
+            %i.fas.fa-chevron-right
+        %li
+          %a.mypage-main__left__nav__list__item{:href => "#"}
+            支払い方法
+            %i.fas.fa-chevron-right
+        %li
+          %a.mypage-main__left__nav__list__item{:href => "#"}
+            メール/パスワード
+            %i.fas.fa-chevron-right
+        %li
+          %a.mypage-main__left__nav__list__item{:href => "#"} 
+            本人情報
+            %i.fas.fa-chevron-right
+        %li
+          %a.mypage-main__left__nav__list__item{:href => "#"}
+            電話番号の確認
+            %i.fas.fa-chevron-right
+        %li
+          %a.mypage-main__left__nav__list__item{:href => "#"}
+            ログアウト
+            %i.fas.fa-chevron-right
+  .mypage-main__right
+    .mypage-main__right__title 
+      %h1 ログアウト
+    .mypage-main__right__main
+      %button.mypage-main__right__main__logout{:type => "submit"} ログアウト
+      -# %input{:name => "__csrf_value", :type => "hidden", :value => "#"}
+    .mypage-main__right__title 
+      %h1 クレジットカード情報
+    .mypage-main__right__main__card
+      .form-content
+        %br
+        = "**** **** **** " + @default_card_information.last4
+        %br
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+        = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button.delete-btn 削除する
