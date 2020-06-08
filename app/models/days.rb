@@ -1,0 +1,1 @@
+class Days < ActiveHash::Base
