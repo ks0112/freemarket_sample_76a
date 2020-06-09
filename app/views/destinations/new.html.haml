@@ -1,92 +1,13 @@
-/重複しているため一時コメントアウト/
--# .header
--#   %h1.header__headerimage
--#     = link_to (image_tag src="logo.png", size: "300x81", class:"header__headerimage__logoimage"), items_path
-
--# .purc-main
--#   .singlemain
--#     %h2.buyhead 購入内容の確認
--#     .buycontent
--#       .buycontent__innner
--#         .buycontent__innner__itembox
--#           %h3.buycontent__innner__itembox__buyimage
--#             =image_tag src="apple.png", size: "100x120"
--#           .buycontent__innner__itembox__buytext
--#             %p.buycontent__innner__itembox__buytext__buyname
--#               秋冬 ツイード クロップパンツ
--#             %p.buycontent__innner__itembox__buytext__buymoney
--#               ¥1500 （税込） 送料込み
-
--#     .total
--#       .total__totalinn
--#         .total__totalinn__totalbox
--#           %p.total__totalinn__totalbox__totaltext
--#             支払い金額
--#           %p.total__totalinn__totalbox__totalmoney
--#             ¥1500
-
--#     .payment
--#       .payment__payinn
--#         .payment__payinn__paymentbox
--#           支払い方法
--#           .payment__payinn__paymentbox__paymentlink
--#             = link_to root_path, class: 'payment__payinn__paymentbox__paymentlink__paylinkicon' do
--#               = icon('fa', 'plus-circle')
--#               %span クレジットカード登録してください
-              
--#     .address
--#       .address__addressinn
--#         .address__addressinn__addressbox
--#           配送先
--#           .address__addressinn__addressbox__addresslink
--#             = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
--#               = icon('fa', 'plus-circle')
--#               配送先を登録してください
-    
--#     .purcbtn
--#       = form_with url: root_path, method: :get do |f|
--#         = f.submit '購入する', class: 'purcbtn__submitbtn'
-
--#     .payfooter
--#       %h1.payfooter__footerimage
--#         = link_to (image_tag src="logo-white", size: "140x60"), items_path
-
 = render "layouts/header"
-.mypage-top
-  %h1 マイページ
 .mypage-main
   .mypage-main__left
-    %nav.mypage-main__left__nav
-      %h3.mypage-main__left__nav__head 詳細
-      %ul.mypage-main__left__list
-        -# %li
-        -#   %a.mypage-main__left__nav__list__item.active{:href => "#"}
-        -#     プロフィール
-        -#     %i.fas.fa-chevron-right
-        %li
-          = link_to "発送元・お届け先住所変更", edit_destination_path(current_user), class: "mypage-main__left__nav__list__item"            
-        %li
-          = link_to "支払い方法", new_card_path, class: "mypage-main__left__nav__list__item"
-        %li
-          %a.mypage-main__left__nav__list__item{:href => "#"}
-            メール/パスワード
-            %i.fas.fa-chevron-right
-        %li
-          %a.mypage-main__left__nav__list__item{:href => "#"} 
-            本人情報
-        -#     %i.fas.fa-chevron-right
-        -# %li
-        -#   %a.mypage-main__left__nav__list__item{:href => "#"}
-        -#     電話番号の確認
-        -#     %i.fas.fa-chevron-right
-        %li          
-          = link_to "ログアウト", user_path(current_user), class: "mypage-main__left__nav__list__item"
+    = render "users/options"
   .mypage-main__right
     .mypage-main__right__title 
       %h1 住所変更
     .container
-      .header
-        = link_to image_tag("logo.png", class:"header__logo"), "/"
+      -# .header
+      -#   = link_to image_tag("logo.png", class:"header__logo"), "/"
       .main
         %h1.registration 会員情報入力
         .register-form
@@ -156,3 +77,58 @@
   -# .footer
   -#   = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
 = render "layouts/footer"
+
+
+
+/重複しているため一時コメントアウト/
+-# .header
+-#   %h1.header__headerimage
+-#     = link_to (image_tag src="logo.png", size: "300x81", class:"header__headerimage__logoimage"), items_path
+
+-# .purc-main
+-#   .singlemain
+-#     %h2.buyhead 購入内容の確認
+-#     .buycontent
+-#       .buycontent__innner
+-#         .buycontent__innner__itembox
+-#           %h3.buycontent__innner__itembox__buyimage
+-#             =image_tag src="apple.png", size: "100x120"
+-#           .buycontent__innner__itembox__buytext
+-#             %p.buycontent__innner__itembox__buytext__buyname
+-#               秋冬 ツイード クロップパンツ
+-#             %p.buycontent__innner__itembox__buytext__buymoney
+-#               ¥1500 （税込） 送料込み
+
+-#     .total
+-#       .total__totalinn
+-#         .total__totalinn__totalbox
+-#           %p.total__totalinn__totalbox__totaltext
+-#             支払い金額
+-#           %p.total__totalinn__totalbox__totalmoney
+-#             ¥1500
+
+-#     .payment
+-#       .payment__payinn
+-#         .payment__payinn__paymentbox
+-#           支払い方法
+-#           .payment__payinn__paymentbox__paymentlink
+-#             = link_to root_path, class: 'payment__payinn__paymentbox__paymentlink__paylinkicon' do
+-#               = icon('fa', 'plus-circle')
+-#               %span クレジットカード登録してください
+              
+-#     .address
+-#       .address__addressinn
+-#         .address__addressinn__addressbox
+-#           配送先
+-#           .address__addressinn__addressbox__addresslink
+-#             = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
+-#               = icon('fa', 'plus-circle')
+-#               配送先を登録してください
+    
+-#     .purcbtn
+-#       = form_with url: root_path, method: :get do |f|
+-#         = f.submit '購入する', class: 'purcbtn__submitbtn'
+
+-#     .payfooter
+-#       %h1.payfooter__footerimage
+-#         = link_to (image_tag src="logo-white", size: "140x60"), items_path
