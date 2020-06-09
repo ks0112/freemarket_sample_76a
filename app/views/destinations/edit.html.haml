@@ -50,7 +50,6 @@
 -#     .payfooter
 -#       %h1.payfooter__footerimage
 -#         = link_to (image_tag src="logo-white", size: "140x60"), items_path
-
 = render "layouts/header"
 .mypage-top
   %h1 マイページ
@@ -74,7 +73,7 @@
         %li
           %a.mypage-main__left__nav__list__item{:href => "#"} 
             本人情報
-        -#     %i.fas.fa-chevron-right
+            %i.fas.fa-chevron-right
         -# %li
         -#   %a.mypage-main__left__nav__list__item{:href => "#"}
         -#     電話番号の確認
@@ -85,8 +84,8 @@
     .mypage-main__right__title 
       %h1 住所変更
     .container
-      .header
-        = link_to image_tag("logo.png", class:"header__logo"), "/"
+      -# .header
+      -#   = link_to image_tag("logo.png", class:"header__logo"), "/"
       .main
         %h1.registration 会員情報入力
         .register-form
@@ -153,6 +152,6 @@
             .actions
               = form.submit "住所更新", class: 'btn'
 
-  -# .footer
-  -#   = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
+      -# .footer
+      -#   = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
 = render "layouts/footer"
