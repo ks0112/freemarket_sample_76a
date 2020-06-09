@@ -1,0 +1,158 @@
+.mypage-top{
+  margin-top: 100px;
+  width: 100%;
+  height:100px;
+  padding: 0 20%;
+  & h1 {
+    font-size: 50px;
+    line-height: 100px;
+    text-align: center;
+  }
+}
+.mypage-main{
+  display: flex;
+  padding: 0 20%;
+  margin-bottom: 50px;
+  &__left {
+    width: 280px;
+    margin: 0 40px 0 0;
+    &__nav {
+      width: 100%;
+      height: 100%;
+      &__head {
+        margin: 10px 0 0;
+        text-align: center;
+      }
+      &__list {
+        &__item {
+          position: relative;
+          display: block;
+          min-height: 48px;
+          padding: 13px;
+          background:lightblue;
+          font-size: 14px;
+          color: #333;
+          text-decoration: none;
+          border-top: 1px solid black;
+          // & i.fas.fa-chevron-right{
+          //   position: absolute;
+          //   top: 35%;
+          //   right: 5px;
+          //   color: black;
+          // }
+        }
+        &__item:hover {
+          background-color:  #3CCACE;
+        }
+      }
+    }
+  }
+  &__right{
+    width: 100%;
+    height: 100%;
+    &__title{
+      height: 50px;
+      width: 100%;
+      border: solid #3CCACE;
+      margin-bottom: 10px;
+      & h1 {
+        font-size: 25px;
+        line-height: 50px;
+        text-align: center;
+      }
+    }
+    &__main{
+      height: 100%;
+      width: 100%;
+      border: solid #3CCACE;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 10px;
+    }
+  }  
+}
+
+
+/*ログアウト*/
+.mypage-main__right__main__logout{
+  border: solid 2px #3CCACE;
+  text-decoration: none;
+  color:  #3CCACE;
+  padding: 15px;
+  font: bold;
+}
+
+
+/*クレジットカード*/
+.mypage-main__right__main__card{
+  width: 500px;
+  border: solid #3CCACE;
+  text-align: center;
+  padding: 20px 40px;
+  margin: 0 auto;
+  .card-title{
+    font: bold;
+    display: flex;
+  }
+  .require{
+    background-color: #3CCACE;
+    width:50px;
+    height: 20px;
+    border-radius: 5px;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+  }
+  &__number{ 
+    display: flex;
+    justify-content: space-between;
+    .card-title{
+      font: bold;
+      display: flex;
+    }
+    &__list{
+      display: flex;
+      justify-content: center;
+      & li{
+        margin: 0 5px;
+        margin-top: 5px;
+      }  
+    }   
+    &__form{
+      width: 410px;
+      border: solid 1px lightgray;
+      border-radius: 3px;
+    }    
+  }
+  &__date{
+    display: flex;
+    justify-content: space-between;
+    &__box{
+      display: flex;
+      .card-expired-date{
+        border: solid 1px lightgray;
+        border-radius: 3px;
+        height: 24px;
+        margin-left: 10px;
+      }
+    }
+  }
+  &__security{
+    display: flex;
+    justify-content: space-between;
+    &__cvc{
+      width: 180px;
+      border: solid 1px lightgray;
+      border-radius: 3px;
+      height: 24px;
+    }
+  }
+  &__token-submit{
+    color:#3CCACE;
+    border: solid 3px #3CCACE;
+    border-radius: 5px;
+    font: bold;
+    cursor: pointer;
+    background-color: white;
+  }
+}
