@@ -1,5 +1,0 @@
- .image{"data-test" => "sell-upload-container"}
-                  %input.image__upload{:accept => "image/png,image/jpeg", :autocomplete => "off", :multiple => "", :style => "display:none", :tabindex => "-1", :type => "file"}/
-
-
-                  
