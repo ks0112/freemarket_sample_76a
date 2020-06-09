@@ -81,6 +81,7 @@
         .field
           .field__label
             = f.label :郵便番号
+            (ハイフン無し)
             %span.form-require 必須
           .field__input
             = f.text_field :post_code
@@ -89,34 +90,34 @@
             = f.label :都道府県
             %span.form-require 必須
           .field__input
-            = f.email_field :prefecture
+            = f.text_field :prefecture
         .field
           .field__label
             = f.label :市町村
             %span.form-require 必須
           .field__input
-            = f.email_field :city
+            = f.text_field :city
         .field
           .field__label
             = f.label :その他住所
             %span.form-require 必須
           .field__input
-            = f.email_field :address
+            = f.text_field :address
         .field
           .field__label
             = f.label :建物
-            %span.form-require 必須
+            %span.form-require 任意
           .field__input
-            = f.email_field :building_name
+            = f.text_field :building_name
         .field
           .field__label
             = f.label :電話番号
-            %span.form-require 必須
+            %span.form-require 任意
           .field__input
-            = f.email_field :phone_number
+            = f.text_field :phone_number
 
         .actions
-          = f.submit "新規会員登録", class: 'btn'
+          = f.submit "住所登録", class: 'btn'
 
-  .footer
-    = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
+  -# .footer
+  -#   = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
