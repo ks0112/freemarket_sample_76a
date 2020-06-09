@@ -63,18 +63,20 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|Options|
 |------|----|-------|-------|
-|user_id|integer|null: false|foreign_key: true|
+|seller|integer|null: false|foreign_key: true|
+|buyer|integer|foreign_key: true|
 |name|string|null: false|
 |description|string|null: false|
 |price|integer|null: false|
-|category_id|integer|foreign_key: true|
-|brand_id|integer|null: false|foreign_key: true|
+|category_id|integer|null: false|foreign_key: true|
+|brand_id|integer|foreign_key: true|
 |status|integer|null: false|
 |cost|integer|null: false
 |prefecture_id|integer|null: false|
 |days|integer|null: false|
 ### Association
-- belongs_to :user dependent: :destroy
+- belongs_to :seller, class_name: “user”, foreign_key: “seller_id”
+- belongs_to :buyer, class_name: “user”, foreign_key: “buyer_id”
 - belongs_to :category dependent: :destroy
 - belongs_to :brand dependent: :destroy
 - has_many :images dependent: :destroy
