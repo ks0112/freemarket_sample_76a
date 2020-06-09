@@ -4,7 +4,7 @@
   .main
     %h1.registration 会員情報入力
     .register-form
-      = form_with url: '#' do |f|
+      = form_with(model: @user, url: user_registration_path,local: true) do |f|
         .field
           .field__label
             = f.label :ニックネーム
@@ -30,7 +30,7 @@
             %i (確認)
             %span.form-require 必須
           .field__input
-            = f.password_field :password_confirmation, autocomplete: "off"
+            = f.password_field :password, autocomplete: "off"
         .field
           .field__label
             = f.label :お名前
