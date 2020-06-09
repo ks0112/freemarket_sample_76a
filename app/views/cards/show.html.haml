@@ -12,11 +12,8 @@
         %li
           %a.mypage-main__left__nav__list__item{:href => "#"}
             発送元・お届け先住所変更
-            %i.fas.fa-chevron-right
         %li
-          %a.mypage-main__left__nav__list__item{:href => "#"}
-            支払い方法
-            %i.fas.fa-chevron-right
+          = link_to "支払い方法", new_card_path, class: "mypage-main__left__nav__list__item"
         %li
           %a.mypage-main__left__nav__list__item{:href => "#"}
             メール/パスワード
@@ -29,16 +26,9 @@
           %a.mypage-main__left__nav__list__item{:href => "#"}
             電話番号の確認
             %i.fas.fa-chevron-right
-        %li
-          %a.mypage-main__left__nav__list__item{:href => "#"}
-            ログアウト
-            %i.fas.fa-chevron-right
+        %li          
+          = link_to "ログアウト", user_path(current_user), class: "mypage-main__left__nav__list__item"
   .mypage-main__right
-    .mypage-main__right__title 
-      %h1 ログアウト
-    .mypage-main__right__main
-      %button.mypage-main__right__main__logout{:type => "submit"} ログアウト
-      -# %input{:name => "__csrf_value", :type => "hidden", :value => "#"}
     .mypage-main__right__title 
       %h1 クレジットカード情報
     .mypage-main__right__main__card
