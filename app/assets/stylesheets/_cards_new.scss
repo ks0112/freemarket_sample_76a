@@ -34,12 +34,12 @@
           color: #333;
           text-decoration: none;
           border-top: 1px solid black;
-          & i.fas.fa-chevron-right{
-            position: absolute;
-            top: 35%;
-            right: 5px;
-            color: black;
-          }
+          // & i.fas.fa-chevron-right{
+          //   position: absolute;
+          //   top: 35%;
+          //   right: 5px;
+          //   color: black;
+          // }
         }
         &__item:hover {
           background-color:  #3CCACE;
@@ -68,13 +68,22 @@
       text-align: center;
       padding: 20px 0;
       margin-bottom: 10px;
-      &__logout{
-        border: solid 2px #3CCACE;
-      }
     }
   }  
 }
 
+
+/*ログアウト*/
+.mypage-main__right__main__logout{
+  border: solid 2px #3CCACE;
+  text-decoration: none;
+  color:  #3CCACE;
+  padding: 15px;
+  font: bold;
+}
+
+
+/*クレジットカード*/
 .mypage-main__right__main__card{
   width: 500px;
   border: solid #3CCACE;
@@ -147,4 +156,3 @@
     background-color: white;
   }
 }
-
