@@ -9,5 +9,4 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :cost
   belongs_to_active_hash :days
-
 end

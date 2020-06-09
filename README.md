@@ -39,7 +39,6 @@ Things you may want to cover:
 |phone_number|string|
 ### Association
 - belongs_to :user
-
 ## cardテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -48,14 +47,12 @@ Things you may want to cover:
 |card_id|string|null: false|
 ### Association
 - belongs_to :user
-
 ## brandテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true|
 ### Association
 - has_many :items
-
 ## imageテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -63,22 +60,23 @@ Things you may want to cover:
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
-
 ## itemsテーブル
 |Column|Type|Options|Options|
 |------|----|-------|-------|
-|user_id|integer|null: false|foreign_key: true|
+|seller|integer|null: false|foreign_key: true|
+|buyer|integer|foreign_key: true|
 |name|string|null: false|
 |description|string|null: false|
 |price|integer|null: false|
-|category_id|integer|foreign_key: true|
-|brand_id|integer|null: false|foreign_key: true|
+|category_id|integer|null: false|foreign_key: true|
+|brand_id|integer|foreign_key: true|
 |status|integer|null: false|
 |cost|integer|null: false
 |prefecture_id|integer|null: false|
 |days|integer|null: false|
 ### Association
-- belongs_to :user dependent: :destroy
+- belongs_to :seller, class_name: “user”, foreign_key: “seller_id”
+- belongs_to :buyer, class_name: “user”, foreign_key: “buyer_id”
 - belongs_to :category dependent: :destroy
 - belongs_to :brand dependent: :destroy
 - has_many :images dependent: :destroy
@@ -86,7 +84,6 @@ Things you may want to cover:
 - belongs_to_active_hash :status
 - belongs_to_active_hash :cost
 - belongs_to_active_hash :days
-
 ## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -94,7 +91,6 @@ Things you may want to cover:
 |ancestry|string|
 ### Association
 - has_many :items
-
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
