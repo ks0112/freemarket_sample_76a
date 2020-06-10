@@ -34,11 +34,12 @@ Things you may want to cover:
 |post_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|address|string|null: false|
+|address_id|string|null: false|
 |building_name|string|
 |phone_number|string|
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 ## cardテーブル
 |Column|Type|Options|
 |------|----|-------|

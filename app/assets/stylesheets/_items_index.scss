@@ -326,3 +326,89 @@
     text-decoration: none;
   }
 }
+
+
+//active,active2はjQueryで使います
+.active{
+  display: block;
+}
+.active2{
+  display: block;
+}
+
+//親カテゴリー
+.parent-wrap{
+  display: flex;
+  width: 100%;
+  height: 100px;
+  .parent{
+    width: 25%;
+    height: 100px;
+    h3{
+      line-height: 100px;
+      text-align: center;
+      &:hover{
+        background-color:yellow;
+      }
+    }
+  }
+}
+
+//子カテゴリー
+.child-wrap{
+  display: none; //のちにdisplay:none；にします
+  background-color:white;
+  width:auto;
+  position: absolute;
+  .child{
+    width:279px;
+    height: 70px;
+    line-height: 70px;
+    &:hover{
+      background-color: red;
+    }
+    span{
+      font-size: 14px;
+      padding:8px 16px;
+      text-decoration: none;
+      color:black;
+    }
+  }
+}
+
+//孫カテゴリー
+.grand-child-wrap{
+  display: none;
+  width:auto;
+  position: absolute;
+  top:0;
+  left:279px;
+  bottom:0;
+  background: #fff;
+
+  .grand-child{
+    width:279px;
+    height: 70px;
+    line-height: 70px;
+    &:hover{
+      background-color: red;
+    }
+
+  }
+}
+
+.child{
+  width:279px;
+}
+
+.grand-child-wrap{
+position: absolute;
+top:0;
+left:279px;
+bottom:0;
+}
+
+.test{
+  height:900px;
+  width: 900px;
+}

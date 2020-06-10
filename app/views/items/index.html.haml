@@ -11,6 +11,31 @@
       .main-btn
         = link_to image_tag("download-on-app-store.png", class:"main-btn__A")
         = link_to image_tag("download-on-google.png", class:"main-btn__B")
+  
+  .test
+    %ul.parent-wrap
+      %li.parent
+        =link_to '/' do
+          %spna リスト１
+        -# %ul.child-wrap
+        -#   %li.child
+        -#     =link_to '/' do
+        -#       %span 1-1
+        %ul.child-wrap
+          - @parents.each do |parent|
+            %li.child
+              = link_to "#", class: "category__parent--name" do
+                = parent.name    
+              %ul.grand-child-wrap
+                - parent.children.each do |child|
+                  %li.grand-child
+                    = link_to "#", class: "category__child--name" do
+                      = child.name
+              -# %ul.grand-child-wrap
+              -#   %li.grand-child
+              -#     =link_to '/' do
+              -#       %span 1-1-1
+
   .main-introduction
     %h2.main-introduction__title FURIMAが選ばれる3つの理由
     %ul.main-introduction__lists
@@ -35,6 +60,33 @@
           手数料
           %span 業界最安
         %p.main-introduction__list-text2 最大3%でお得に出品&amp;購入！
+
+
+  -# .categories
+  -#   %ul
+  -#     %li
+  -#       = link_to "#", class: "category__search search__btn" do
+  -#         %i.fas.fa-bars.category__icon
+  -#         カテゴリーから探す
+  -#       %ul.category__parent.category__list
+  -#         - @parents.each do |parent|
+  -#           %li
+  -#             = link_to "#", class: "category__parent--name" do
+  -#               = parent.name
+  -#             %ul.category__child.category__list
+  -#               - parent.children.each do |child|
+  -#                 %li
+  -#                   = link_to "#", class: "category__child--name" do
+  -#                     = child.name
+  -#                   %ul.category__grandchild.category__list
+  -#                     - child.children.each do |grandchild|
+  -#                       %li
+  -#                         = link_to "#", class: " category__child--name" do
+  -#                           = grandchild.name 
+
+
+
+
   .middle
     .middle__img
       .middle-content
@@ -140,6 +192,7 @@
               %i.fa.fa-star.likeIcon
               0
           %p.product__list__detail-tax (税込)
+
   .banner
     .banner__img
       .banner-content
