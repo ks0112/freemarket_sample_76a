@@ -12,29 +12,45 @@
         = link_to image_tag("download-on-app-store.png", class:"main-btn__A")
         = link_to image_tag("download-on-google.png", class:"main-btn__B")
   
+  -# .test
+  -#   %ul.parent-wrap
+  -#     %li.parent
+  -#       =link_to '/' do
+  -#         %spna リスト１
+  -#       -# %ul.child-wrap
+  -#       -#   %li.child
+  -#       -#     =link_to '/' do
+  -#       -#       %span 1-1
+  -#       %ul.child-wrap
+  -#         - @parents.each do |parent|
+  -#           %li.child
+  -#             = link_to "#", class: "category__parent--name" do
+  -#               = parent.name    
+  -#             %ul.grand-child-wrap
+  -#               - parent.children.each do |child|
+  -#                 %li.grand-child
+  -#                   = link_to "#", class: "category__child--name" do
+  -#                     = child.name
+  -#             -# %ul.grand-child-wrap
+  -#             -#   %li.grand-child
+  -#             -#     =link_to '/' do
+  -#             -#       %span 1-1-1
+
   .test
-    %ul.parent-wrap
-      %li.parent
+    %ul.category-wrap
+      %li.category
         =link_to '/' do
           %spna リスト１
-        -# %ul.child-wrap
-        -#   %li.child
-        -#     =link_to '/' do
-        -#       %span 1-1
-        %ul.child-wrap
+        %ul.parent-wrap
           - @parents.each do |parent|
-            %li.child
+            %li.parent
               = link_to "#", class: "category__parent--name" do
                 = parent.name    
-              %ul.grand-child-wrap
+              %ul.child-wrap
                 - parent.children.each do |child|
-                  %li.grand-child
+                  %li.child
                     = link_to "#", class: "category__child--name" do
                       = child.name
-              -# %ul.grand-child-wrap
-              -#   %li.grand-child
-              -#     =link_to '/' do
-              -#       %span 1-1-1
 
   .main-introduction
     %h2.main-introduction__title FURIMAが選ばれる3つの理由
