@@ -52,6 +52,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true|
+|item_id|integer|oreign_key: true|
 ### Association
 - has_many :items
 ## imageテーブル

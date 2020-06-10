@@ -7,23 +7,28 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @item = Item.new
-    # @item.item_images.new
+    @item = Item.new
   end
 
   def create
-    # @item = Item.new(item_params)
-    # if @item.save
-    #   redirect_to root_path
-    # else
-    #   redirect_to new_item_path,data: { turbolinks: false }
-    # end
+    @item = Item.new(item_params)
+    if @item.save!
+      redirect_to root_path
+    else
+      redirect_to new_item_path,data: { turbolinks: false }
+    end
   end
 
   def show
   end
 
   def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
 
@@ -37,9 +42,10 @@ class ItemsController < ApplicationController
 
   private
 
-  # def item_params
-  #   params.require(:item).permit(:name item_images_attributes: [:image, :_destroy]).merge(seller_id: current_user.id)
-  # end
+  def item_params
+    params.require(:item).permit(:name, :description, :price, :status, :cost, :days,
+      images_attributes: [:src], brand_attributes: [:id, :name], category_ids: []).merge(seller_id: current_user.id)
+  end
 
   def set_current_user_items
     if user_signed_in?

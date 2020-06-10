@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_093842) do
+ActiveRecord::Schema.define(version: 2020_06_10_120038) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_brands_on_item_id"
     t.index ["name"], name: "index_brands_on_name"
   end
 
@@ -61,21 +63,23 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "description", null: false
     t.string "price", null: false
     t.bigint "category_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.string "status", null: false
     t.string "cost", null: false
     t.string "prefecture_id", null: false
     t.string "days", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,10 +100,10 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "brands", "items"
   add_foreign_key "cards", "users"
   add_foreign_key "destinations", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
 end
