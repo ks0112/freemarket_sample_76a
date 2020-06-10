@@ -136,6 +136,15 @@ $(document).ready(function(){
   },function(){
     $(this).removeClass('active2');
     $(this).children('.child-wrap').hide();
-
   });
+
+  $('.child').hover(function(){
+    $(this).addClass('active3');
+    var grandChild = $('.active3').children('.grandchild-wrap');
+    grandChild.show();
+  },function(){
+    $(this).removeClass('active3');
+    $(this).children('.grandchild-wrap').hide();
+  });
+
 });

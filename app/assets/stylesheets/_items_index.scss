@@ -420,8 +420,11 @@
 .active2{
   display: block;
 }
+.active3{
+  display: block;
+}
 
-//親カテゴリー
+//カテゴリー
 .category-wrap{
   display: flex;
   width: 100%;
@@ -439,7 +442,7 @@
   }
 }
 
-//子カテゴリー
+//親カテゴリー
 .parent-wrap{
   display: none; //のちにdisplay:none；にします
   background-color:white;
@@ -461,7 +464,7 @@
   }
 }
 
-//孫カテゴリー
+//子カテゴリー
 .child-wrap{
   display: none;
   width:auto;
@@ -478,9 +481,31 @@
     &:hover{
       background-color: red;
     }
-
   }
 }
+
+
+//孫カテゴリー
+.grandchild-wrap{
+  display: none;
+  width:auto;
+  position: absolute;
+  top:0;
+  left:279px;
+  bottom:0;
+  background: #fff;
+
+  .grandchild{
+    width:279px;
+    height: 70px;
+    line-height: 70px;
+    &:hover{
+      background-color: red;
+    }
+  }
+}
+
+
 
 .test{
   height:900px;

@@ -51,6 +51,11 @@
                   %li.child
                     = link_to "#", class: "category__child--name" do
                       = child.name
+                    %ul.grandchild-wrap
+                      - child.children.each do |child|
+                        %li.grandchild
+                          = link_to "#", class: "category__grandchild--name" do
+                            = child.name
 
   .main-introduction
     %h2.main-introduction__title FURIMAが選ばれる3つの理由
