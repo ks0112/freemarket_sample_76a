@@ -52,8 +52,8 @@ $(function(){
       //イメージを追加
       $(`#preview-box__${id} img`).attr('src', `${image}`);
       var count = $('.preview-box').length;
-      //プレビューが4個あったらラベルを隠す 
-      if (count == 4) { 
+      //プレビューが4個あったらラベルを隠す
+      if (count == 4) {
         $('.label-content').hide();
       }
 
@@ -76,7 +76,7 @@ $(function(){
     //取得したidに該当するプレビューを削除
     $(`#preview-box__${id}`).remove();
     console.log("new")
-    //フォームの中身を削除 
+    //フォームの中身を削除
     $(`#item_images_attributes_${id}_image`).val("");
 
     //削除時のラベル操作

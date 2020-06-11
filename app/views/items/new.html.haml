@@ -5,7 +5,7 @@
 
   .inner
     .exhibition-form
-      = form_with url: "" do |f|
+      = form_with(model: @item, local: true) do |f|
         .sell
           = f.label :出品画像, class: "sell__label"
           %span.sell__require 必須
@@ -47,10 +47,21 @@
                 = f.label :カテゴリー
                 %span.form-require 必須
               .form-group__field__input
-                .form-group__field__input__select
-                  = f.select :category_id, [ ["レディース",1], ["メンズ", 2], ["", 3 ] ,["", 4], ["", 5], ["", 6] ], prompt: "選択してください"
-                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                .exhibitionPage
+                .exhibitionPage__main
+                  .exhibitionPage__main__contents
+                    .exhibitionPage__main__contents__detail
+                      .exhibitionPage__main__contents__detail__title
+                        -# %h1 商品の詳細
+                      .exhibitionPage__main__contents__detail__category
+                        .exhibitionPage__main__contents__detail__category__title
+                          -# %label.sab-title カテゴリー
+                          -# %span.required 必須
+                        .exhibitionPage__main__contents__detail__category__choose
+                          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+                          -# %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                          -#   %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+
             .form-group__field
               = f.fields_for :brand do |brand|
                 .form-group__field__label
@@ -64,7 +75,7 @@
                 %span.form-require 必須
               .form-group__field__input
                 .form-group__field__input__select
-                  = f.collection_select :status, Status.all, :id, :name
+                  = f.collection_select :name, Status.all, :id, :name
                   %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
                     %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
           %hr.border/
@@ -78,7 +89,7 @@
                 %span.form-require 必須
               .form-group__field__input
                 .form-group__field__input__select
-                  = f.collection_select :cost, Cost.all, :id, :name
+                  = f.collection_select :name, Cost.all, :id, :name
                   %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
                     %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
             .form-group__field
@@ -96,7 +107,7 @@
                 %span.form-require 必須
               .form-group__field__input
                 .form-group__field__input__select
-                  = f.collection_select :days, Days.all, :id, :name
+                  = f.collection_select :name, Days.all, :id, :name
                   %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
                     %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
           %hr.border/

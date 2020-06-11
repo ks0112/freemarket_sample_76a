@@ -33,7 +33,7 @@
         margin: 5px auto 0;
         display: flex;
         flex-wrap: wrap;
-  
+
       //プレビュー表示欄のCSS
       .prev-content {
         display: flex;
@@ -74,7 +74,7 @@
         }
       }
     }
-  
+
     //投稿クリックエリアのCSS
     .label-content{
       margin-bottom: 10px;
@@ -108,16 +108,16 @@
     }
 
     //file_fieldのcss
-    .hidden-content {
-      .hidden-field {
-        // display: none;
-      }
-      .hidden-checkbox {
-        // display: none;
-      }
-    }
+    // .hidden-content {
+    //   .hidden-field {
+    //     display: none;
+    //   }
+    //   .hidden-checkbox {
+    //     display: none;
+    //   }
+    // }
   }
-  
+
     .exhibition-form {
       background-color: rgb(255, 255, 255);
       margin: 0 auto;
@@ -311,4 +311,19 @@
       margin-top: 10px;
     }
   }
+}
+#parent_category, #child_category, #grandchild_category{
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  height: 48px;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0 56px 0 16px;
+  width: 100%;
 }
