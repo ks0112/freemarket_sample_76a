@@ -79,3 +79,5 @@ gem 'devise'
 gem 'active_hash'
 gem 'payjp'
 gem "jquery-rails"
+gem 'carrierwave'
+gem 'mini_magick'
