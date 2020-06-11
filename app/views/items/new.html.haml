@@ -17,7 +17,7 @@
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :images do |i|
-                = i.file_field :src, class: "hidden-field"
+                = i.file_field :image, class: "hidden-field"
                 %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
                 %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
                 %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
@@ -47,21 +47,20 @@
                 = f.label :カテゴリー
                 %span.form-require 必須
               .form-group__field__input
-                .exhibitionPage
-                .exhibitionPage__main
-                  .exhibitionPage__main__contents
-                    .exhibitionPage__main__contents__detail
-                      .exhibitionPage__main__contents__detail__title
-                        -# %h1 商品の詳細
-                      .exhibitionPage__main__contents__detail__category
-                        .exhibitionPage__main__contents__detail__category__title
-                          -# %label.sab-title カテゴリー
-                          -# %span.required 必須
-                        .exhibitionPage__main__contents__detail__category__choose
-                          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
-                          -# %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                          -#   %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-
+                .exhibitionPage__main__contents__detail__category__choose
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+                  .exhibitionPage
+                  .exhibitionPage__main
+                    .exhibitionPage__main__contents
+                      .exhibitionPage__main__contents__detail
+                        .exhibitionPage__main__contents__detail__title
+                          -# %h1 商品の詳細
+                        .exhibitionPage__main__contents__detail__category
+                          .exhibitionPage__main__contents__detail__category__title
+                            -# %label.sab-title カテゴリー
+                            -# %span.required 必須
+                            -# %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                            -#   %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
             .form-group__field
               = f.fields_for :brand do |brand|
                 .form-group__field__label
