@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   def new
+    @parents = Category.where(ancestry: nil)
     card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if card.exists?
   end
@@ -37,6 +38,7 @@ class CardsController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出す
+    @parents = Category.where(ancestry: nil)
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card_path 
