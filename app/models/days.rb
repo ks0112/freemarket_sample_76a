@@ -1,4 +1,6 @@
 class Days < ActiveHash::Base
   self.data = [
-     {id: 0,name: '選択してください'"1~2日で発送",1], ["2~3日で発送", 2], ["4~7日で発送", 3 ] 
+     {id: 0,name: '選択してください'},
+     {id: 1,name: '1~2日で発送'}, {id: 2,name:'2~3日で発送'}, {id: 3,name:'4~7日で発送'}
   ]
+end

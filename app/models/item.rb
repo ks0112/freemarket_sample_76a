@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   belongs_to :seller, class_name: "user", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "user", foreign_key: "buyer_id"
   belongs_to :category, dependent: :destroy
@@ -10,5 +11,6 @@ class Item < ApplicationRecord
   # belongs_to_active_hash :status
   # belongs_to_active_hash :cost
   # belongs_to_active_hash :days
+
 
 end

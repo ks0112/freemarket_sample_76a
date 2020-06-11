@@ -137,15 +137,29 @@
           &__label {
             align-items: center;
             display: flex;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin-right: auto;
             .form-require {
               background-color: #ff0211;
               color: #fff;
               border-radius: 2px;
               display: inline-block;
               font-style: normal;
-              font-weight: 600;
-              line-height: 1.4em;
-              margin: 0;
+              margin-left: 8px;
+              font-size: 12px;
+              padding: 0 4px;
+            }
+            .form-optional {
+              background-color: #bfbfbf;
+              color: #fff;
+              border-radius: 2px;
+              display: inline-block;
+              font-style: normal;
+              margin-left: 8px;
+              font-size: 12px;
+              padding: 0 4px;
             }
           }
           &__input {
@@ -208,6 +222,29 @@
               }
             }
           }
+          &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .yen {
+              font-size: 14px;
+              margin-right: 8px;
+            }
+            .number-field {
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              font-family: inherit;
+              font-size: inherit;
+              height: 48px;
+              margin: 0;
+              outline: none;
+              padding: 0 16px;
+              display: inline-block;
+              width: 275px;
+              text-align: right;
+            }
+          }
         }
       }
       .border {
@@ -218,17 +255,59 @@
         border-top-style: solid;
         margin: 0;
       }
+      .actions {
+        width: 360px;
+        margin: 0px auto 32px;
+        padding-bottom: 40px;
+        .exhibition {
+          cursor: pointer;
+          text-align: center;
+          background: #20c7ab;
+          border: 1px solid #20c7ab;
+          color: #fff;
+          font-size: 17px;
+          min-height: 48px;
+          padding: 0 24px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          font-weight: 600;
+          line-height: 1;
+          overflow: hidden;
+          text-decoration: none;
+          width: 100%;
+          margin-top: 40px;
+        }
+        .save {
+          cursor: pointer;
+          text-align: center;
+          background-color: #ccc;
+          border-color: transparent;
+          color: #222;
+          font-size: 17px;
+          min-height: 48px;
+          padding: 0 24px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          font-weight: 600;
+          line-height: 1;
+          overflow: hidden;
+          text-decoration: none;
+          width: 100%;
+          margin-top: 24px;
+        }
+      }
     }
   }
 
   .footer {
     background-color:#f5f5f5;
     text-align: center;
+    height: 100px;
     &__logo {
       width: 185px;
       height: 49px;
       line-height: 49px;
-      padding: 40px 0;
+      margin-top: 10px;
     }
   }
 }
