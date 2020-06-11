@@ -79,3 +79,6 @@ gem 'devise'
 gem 'active_hash'
 gem 'payjp'
 gem "jquery-rails"
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n'
