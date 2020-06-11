@@ -5,18 +5,23 @@
 
   .inner
     .exhibition-form
-      = form_with url: '#' do |f|
-
-        .upload-image
-          .form-group
-            .form-group__field
-              .form-group__field__label
-                = f.label :出品画像
-                %span.form-require 必須
-              .form-group__field__input
-                = f.file_field :image_id
-          %hr.border/
-
+      = form_with model: @item do |f|
+        .sell
+          = f.label :出品画像, class: "sell__label"
+          %span.sell__require 必須
+          .sell__comment 最大4枚までアップロードできます
+          .sell__imgbox
+            .prev-content
+            .label-content
+              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |i|
+                = i.file_field :src, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                %hr.border
         .goods
           .form-group
             .form-group__field
@@ -31,7 +36,7 @@
                 %span.form-require 必須
               .form-group__field__input
                 = f.text_area :description, rows: "6", class: "text-area"
-          %hr.border/
+        %hr.border/
 
         .details
           .form-group
