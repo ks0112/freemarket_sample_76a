@@ -14,10 +14,12 @@ class ItemsController < ApplicationController
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil)
+    @item.build_brand
   end
 
   def create
     @item = Item.new(item_params)
+    # binding.pry
     if @item.save!
       redirect_to root_path
     else

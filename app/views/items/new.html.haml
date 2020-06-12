@@ -62,12 +62,12 @@
                               -# %svg{“aria-hidden” => “true”, :fill => “#888888”, “fill-rule” => “evenodd”, :height => “24", :viewbox => “0 0 24 24”, :width => “24"}
                               -#   %path{:d => “M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z”}
                 .form-group__field
-                  -# = f.fields_for :brand do |brand|
-                  .form-group__field__label
-                    = f.label :ブランド
-                    %span.form-optional 任意
-                  .form-group__field__input
-                    = f.text_field :brand_id, placeholder: "例）シャネル", autocomplete: "off", class: "text-field"
+                  = f.fields_for :brand do |brand|
+                    .form-group__field__label
+                      = brand.label :ブランド
+                      %span.form-optional 任意
+                    .form-group__field__input
+                      = brand.text_field :name, placeholder: "例）シャネル", autocomplete: "off", class: "text-field"
                 .form-group__field
                   .form-group__field__label
                     = f.label :商品の状態
