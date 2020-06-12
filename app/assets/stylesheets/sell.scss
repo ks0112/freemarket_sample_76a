@@ -108,14 +108,11 @@
     }
 
     //file_fieldのcss
-    // .hidden-content {
-    //   .hidden-field {
-    //     display: none;
-    //   }
-    //   .hidden-checkbox {
-    //     display: none;
-    //   }
-    // }
+    .hidden-content {
+      .hidden-field {
+        display: none;
+      }
+    }
   }
 
     .exhibition-form {
@@ -131,7 +128,6 @@
         margin-bottom: 24px;
       }
       .form-group {
-        // padding: 40px;
         padding: 20px 40px 40px 40px;
         &__field {
           margin-top: 32px;
