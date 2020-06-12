@@ -4,7 +4,7 @@
 
   .main
     .register-form
-      = form_with url: '#' do |f|
+      = form_with(model: @user, url: user_session_path,local: true) do |f|
         .field
           .field__label
             = f.label :メールアドレス

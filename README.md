@@ -39,6 +39,7 @@ Things you may want to cover:
 |phone_number|string|
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 ## cardテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -51,6 +52,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true|
+|item_id|integer|oreign_key: true|
 ### Association
 - has_many :items
 ## imageテーブル
