@@ -4,7 +4,7 @@
     = render "users/options"
   .mypage-main__right
     .mypage-main__right__title 
-      %h1 住所変更
+      %h1 住所登録
     .container
       -# .header
       -#   = link_to image_tag("logo.png", class:"header__logo"), "/"
@@ -66,13 +66,13 @@
                 = form.text_field :building_name
             .field
               .field__label
-                = form.label :電話番号
+                = form.label :電話番号"(ハイフン無し)"
                 %span.form-require 任意
               .field__input
                 = form.text_field :phone_number
 
             .actions
-              = form.submit "住所更新", class: 'btn'
+              = form.submit "住所登録", class: 'btn'
 
   -# .footer
   -#   = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
