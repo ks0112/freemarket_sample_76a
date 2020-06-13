@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_104644) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+
     t.string "nickname", null: false
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -103,7 +104,4 @@ ActiveRecord::Schema.define(version: 2020_06_10_104644) do
   add_foreign_key "brands", "items"
   add_foreign_key "cards", "users"
   add_foreign_key "destinations", "users"
-  add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
 end
