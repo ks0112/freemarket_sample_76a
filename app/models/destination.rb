@@ -8,16 +8,9 @@ class Destination < ApplicationRecord
   validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/}
   validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :first_name_kana,  presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :post_code, format: { with: /\A\d{7}\z/ }, presence: true
-  validate :postcode
+  validates :post_code, format: { with: /\A\d{7}\z/ }, presence: true
   validates :prefecture_id, presence: true
   validates :city, presence: true
   validates :address, presence: true
   validates :phone_number, format: { with: /\A[0-9]+\z/}, allow_blank: true
-
-  def postcode
-    return if post_code =~ /\A\d{7}\z/
-    @error_name6 = I18n.t(User.human_attribute_name(:post_code))
-    errors.add @error_name6, "はハイフンなし、７桁の数字で入力してください"
-  end
 end
