@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "post_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
@@ -52,39 +52,19 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.index ["user_id"], name: "index_destinations_on_user_id"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
-    t.bigint "item_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id"
-  end
-
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "buyer_id"
-    t.integer "seller_id", null: false
-    t.string "name", null: false
-    t.string "description", null: false
-    t.integer "price", null: false
-    t.bigint "category_id", null: false
-    t.bigint "brand_id"
-
-    t.integer "status_id", null: false
-    t.integer "cost_id", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "days_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
-    t.index ["category_id"], name: "index_items_on_category_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token", default: ""
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at", null: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.string "nickname", null: false
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -93,13 +73,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.date "birth_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "cards", "users"
   add_foreign_key "destinations", "users"
-  add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
 end
