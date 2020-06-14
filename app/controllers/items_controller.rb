@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
 
 
   def index
+    @item = Item.limit(3).order('created_at DESC')
+    @womencategory = Item.where(category_id: 1..199).order('created_at DESC').limit(3)
+    @mencategory = Item.where(category_id: 200..345).order('created_at DESC').limit(3)
+    @entertainment = Item.where(category_id: 625..684).order('created_at DESC').limit(3)
+    @items = Image.includes(:images).order('id DESC').limit(3)
   end
 
   def new

@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.integer "price", null: false
     t.bigint "category_id", null: false
     t.bigint "brand_id"
-
     t.integer "status_id", null: false
     t.integer "cost_id", null: false
     t.integer "prefecture_id", null: false
@@ -82,15 +81,9 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token", default: ""
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at", null: false
-    t.string "nickname", null: false
-    t.string "family_name", null: false
-    t.string "first_name", null: false
-    t.string "family_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.date "birth_day", null: false
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

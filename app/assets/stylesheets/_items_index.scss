@@ -196,6 +196,8 @@
       }
     }
   }
+
+  // ---------------------------------商品一覧表示機能
   .product {
     padding: 50px 0 50px 0;
     background-color: #f8f8f8;
@@ -206,51 +208,59 @@
     }
     &__body {
       width: 840px;
-      height: 300px;
+      height: 350px;
       margin: 0 auto;
-      &-title {
+      &__body-title {
         font-weight: bold;
         font-size: 24px;
         color: #3CCACE;
         text-align: center;
         cursor: pointer;
       }
-    }
-    &__list {
-      height: 260px;
-      width: 220px;
-      text-align: center;
-      float: left;
-      margin: 0 30px;
-      &-img {
-        height: 170px;
-        background-color: white;
-      }
-      &__detail {
-        // height: 58px;
-        background-color: white;
-        color: #333;
-        padding: 16px;
-        &-name {
-          line-height: 1.5;
-          font-size: 16px;
-          text-align: left;
-        }
-        &-price {
-          line-height: 1.5;
-          font-size: 16px;
-          text-align: left;
-          display: flex;
-          justify-content: space-between;
-        }
-        &-tax {
-          line-height: 1.5;
-          font-size: 10px;
-          text-align: left;
+      &__lists {
+      // height: 260px;
+      width: 780px;
+      // text-align: center;
+      // float: left;
+      margin: 30px auto;
+      display:flex;
+      justify-content: space-around;
+        &__list {
+          background-color: #fff;
+          width: 220px;
+          // display: inline-block;
+          // justify-content: space-around;
+        &__list-img {
+          margin: 0;
+          width: 220px;
+          text-align: center;
+          &__image{
+            height: 180px;
+            width: 100%;
+          }
         }
       }
     }
   }
+}
+.product__lists__list__detail-price{
+  display:flex;
+  &__itemstar{
+    padding-left:100px;
+  }
+}
+.sold-tag {
+  &__title {
+  position: absolute;
+  color: red;
+  transform: rotate(-15deg);
+  font-weight: 600;
+  font-size: 40px;
+  padding-left: 10px;
+  }
+}
+// ---------------------------------商品一覧表示機能
+
   .banner {
     width: 100%;
     position: relative;
