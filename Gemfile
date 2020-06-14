@@ -84,7 +84,6 @@ gem "jquery-rails"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
-gem 'pry-rails'
 gem 'fog-aws'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
