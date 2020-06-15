@@ -58,13 +58,7 @@
                               -# %label.sab-title カテゴリー
                               -# %span.required 必須
                             .exhibitionPage__main__contents__detail__category__choose
-                              -# = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
-                              = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
-                            .form_group#children
-                              = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category'}
-                            .form_group#grandchildren
-                              = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category'}
-                            = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
+                              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, {id: "parent_category"}
                 .form-group__field
                   = f.fields_for :brand do |brand|
                     .form-group__field__label
