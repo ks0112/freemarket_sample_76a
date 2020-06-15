@@ -218,18 +218,13 @@
         cursor: pointer;
       }
       &__lists {
-      // height: 260px;
       width: 780px;
-      // text-align: center;
-      // float: left;
       margin: 30px auto;
       display:flex;
       justify-content: space-around;
         &__list {
           background-color: #fff;
           width: 220px;
-          // display: inline-block;
-          // justify-content: space-around;
         &__list-img {
           margin: 0;
           width: 220px;

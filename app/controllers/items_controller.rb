@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
   before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
@@ -27,7 +28,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      redirect_to new_item_path
+      @item = Item.new(item_params)
+      render new_item_path
     end
   end
 

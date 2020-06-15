@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_093842) do
+ActiveRecord::Schema.define(version: 2020_06_10_104644) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_brands_on_item_id"
     t.index ["name"], name: "index_brands_on_name"
   end
 
@@ -42,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "post_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
@@ -84,15 +86,21 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "nickname", null: false
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.date "birth_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "brands", "items"
   add_foreign_key "cards", "users"
   add_foreign_key "destinations", "users"
-  add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
 end
