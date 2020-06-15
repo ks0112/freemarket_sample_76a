@@ -52,6 +52,32 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.index ["user_id"], name: "index_destinations_on_user_id"
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "buyer_id"
+    t.integer "seller_id", null: false
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "price", null: false
+    t.bigint "category_id", null: false
+    t.bigint "brand_id"
+    t.integer "status_id", null: false
+    t.integer "cost_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "days_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,4 +103,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
 
   add_foreign_key "cards", "users"
   add_foreign_key "destinations", "users"
+  add_foreign_key "images", "items"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
 end
