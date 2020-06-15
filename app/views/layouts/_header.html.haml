@@ -3,13 +3,13 @@
   .main-header__inner
     .main-header__inner__main
       %h1.main-header__inner__main__icon
-        =link_to image_tag("/assets/logo.png", width: "140")
+        =link_to image_tag("logo.png", width: "140")
       .main-header__inner__main__searchbox
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
           %input#searchInput.searchbox--input{:name => "key", :placeholder => "キーワードから探す"}
           %button{:type => "submit"}
             .main-header__inner__main__searchbox__icon
-              %img{:src => "/assets/icon-search 1.png", height: "17"}
+              =link_to image_tag("icon-search 1.png", height: "17")
     .main-header__inner__nav
       %ul.main-header__inner__nav__listleft
         %li.main-header__inner__nav__listleft__item.listleft__item--first

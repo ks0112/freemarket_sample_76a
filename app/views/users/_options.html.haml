@@ -2,7 +2,7 @@
   %h3.mypage-main__left__nav__head マイページ
   %ul.mypage-main__left__list
     %li
-      = link_to "発送元・お届け先住所変更", edit_destination_path(current_user), class: "mypage-main__left__nav__list__item"            
+      = link_to "発送元・お届け先住所変更", edit_destination_path(current_user), class: "mypage-main__left__nav__list__item"
     %li
       = link_to "支払い方法", new_card_path, class: "mypage-main__left__nav__list__item"
     -# %li
@@ -11,5 +11,5 @@
     %li
       = link_to "本人情報", edit_user_registration_path, class: "mypage-main__left__nav__list__item"
     -#  %i.fas.fa-chevron-right
-    %li          
+    %li
       = link_to "ログアウト", user_path(current_user), class: "mypage-main__left__nav__list__item"
