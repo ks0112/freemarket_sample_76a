@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   # resources :items
   resources :users, only: :show
-  # resources :images
+  resources :images
   resources :destinations
   resources :cards, only: [:new, :show, :destroy] do
     collection do
