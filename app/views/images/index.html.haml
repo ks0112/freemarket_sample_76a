@@ -1,0 +1,8 @@
+= render "layouts/header"
+.mypage-main
+  .mypage-main__left
+    = render "users/options"
+  .mypage-main__right
+    .mypage-main__right__title 
+      = render partial: "myitem", locals: {images: @items}
+= render "layouts/footer"
