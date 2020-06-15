@@ -1,0 +1,19 @@
+-# 新着アイテムページ
+- @item.each do |item|
+  .product__body__lists__list
+    .product__body__lists__list__list-img
+      = image_tag item.images[0].image.url, class: "product__body__lists__list__list-img__image"
+      - if item.buyer_id == 1
+        .sold-tag
+          .sold-tag__title sold out
+    .product__body__lists__list__detail
+      %h3.product__lists__list__detail-name 
+        = item.name
+        %ul.product__lists__list__detail-price
+          %li.product__lists__list__detail-price__itemprice
+            =item.price 
+            円
+          %li.product__lists__list__detail-price__itemstar
+            %i.fa.fa-star.likeIcon
+            0
+        %p.product__lists__list__detail-tax (税込)
