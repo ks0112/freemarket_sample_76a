@@ -11,5 +11,8 @@
     %li
       = link_to "本人情報", edit_user_registration_path, class: "mypage-main__left__nav__list__item"
     -#  %i.fas.fa-chevron-right
-    %li
+    %li          
       = link_to "ログアウト", user_path(current_user), class: "mypage-main__left__nav__list__item"
+    %li          
+      = link_to "出品確認", images_path(current_user), class: "mypage-main__left__nav__list__item"
+
