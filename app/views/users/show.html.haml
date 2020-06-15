@@ -3,7 +3,7 @@
   .mypage-main__left
     = render "options"
   .mypage-main__right
-    .mypage-main__right__title 
+    .mypage-main__right__title
       %h1 ログアウト
     .mypage-main__right__main
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "mypage-main__right__main__logout"
@@ -35,7 +35,7 @@
 -#             メール/パスワード
 -#             %i.fas.fa-chevron-right
 -#         %li
--#           %a.mypage-main__left__nav__list__item{:href => "#"} 
+-#           %a.mypage-main__left__nav__list__item{:href => "#"}
 -#             本人情報
 -#             %i.fas.fa-chevron-right
 -#         %li
@@ -46,11 +46,11 @@
 -#         -#   %a.mypage-main__left__nav__list__item{:href => "#"}
 -#         -#     ログアウト
 -#         -#     %i.fas.fa-chevron-right
--#         %li          
+-#         %li
 -#           = link_to "ログアウト", user_path(current_user), class: "mypage-main__left__nav__list__item"
 -#           %i.fas.fa-chevron-right
 -#   .mypage-main__right
--#     .mypage-main__right__title 
+-#     .mypage-main__right__title
 -#       %h1 ログアウト
 -#     .mypage-main__right__main
 -#       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "mypage-main__right__main__logout"
