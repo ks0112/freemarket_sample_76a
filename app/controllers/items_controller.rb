@@ -2,8 +2,9 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
-  before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
+  # before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
 
+  require 'payjp'
 
   def index
     @item = Item.limit(3).order('created_at DESC')
@@ -34,6 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -67,6 +69,21 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
+  def buy
+    @item = Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
+    Payjp::Charge.create(
+    :amount => @item.price,）
+    :customer => card.customer_id, #顧客ID
+    :currency => 'jpy', #日本円
+  )
+  @item.update( buyer_id: current_user.id)
+  redirect_to action: 'done' #完了画面に移動
+  end
+
+  def done
+  end
 
   private
 
