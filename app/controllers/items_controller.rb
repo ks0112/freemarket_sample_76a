@@ -74,9 +74,9 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
     Payjp::Charge.create(
-    :amount => @item.price,）
+    :amount => @item.price,
     :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
+    :currency => 'jpy' #日本円
   )
   @item.update( buyer_id: current_user.id)
   redirect_to action: 'done' #完了画面に移動
