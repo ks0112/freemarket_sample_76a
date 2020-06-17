@@ -3,12 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // ヘッダー部分後ほど削除
-
+.header {
+  text-align: center;
+  &__logo {
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+    margin: 40px 0 0;
+  }
+}
 // ここから詳細画面記述
 .main{
   background-color: #f8f8f8;
   height: 100%;
-  margin-top: 100px;
 }
   .showmain{
     padding: 40px;
@@ -29,6 +36,46 @@
         .itemBox{
           background-color: #fff;
           padding: 24px 40px 40px;
+          &__edit-btn{
+            font-size: 24px;
+            line-height: 60px;
+            display: block;
+            background: #d3d3d3;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+            transition: all ease-out .3s;
+            touch-action: manipulation;
+            text-decoration: none;
+          }
+          &__delete-btn{
+            font-size: 24px;
+            line-height: 60px;
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 20px;
+            background: #ea352d;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+            transition: all ease-out .3s;
+            touch-action: manipulation;
+            text-decoration: none;
+          }
+          &__next-btn{
+            font-size: 24px;
+            line-height: 60px;
+            display: block;
+            margin-top: 16px;
+            background: #ea352d;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+            transition: all ease-out .3s;
+            touch-action: manipulation;
+            margin-bottom: 40px;
+            text-decoration: none;
+          }
           &__name{
             text-align: center;
             font-weight: bold;
