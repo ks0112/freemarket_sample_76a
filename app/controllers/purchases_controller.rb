@@ -2,8 +2,6 @@ class PurchasesController < ApplicationController
   before_action :set_item, only:[:buy, :index]
   
   def index
-    # @item = Item.find(params[:item_id])
-    # card = Card.where(user_id: current_user.id).first
     card = Card.find_by(user_id: current_user.id)
     # if card.blank?
     #   #登録された情報がない場合にカード登録画面に移動
@@ -33,8 +31,6 @@ class PurchasesController < ApplicationController
   end
 
   def buy
-    # @item = Item.find(params[:item_id])
-    # card = Card.where(user_id: current_user.id).first
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
