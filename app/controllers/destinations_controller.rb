@@ -25,8 +25,13 @@ class DestinationsController < ApplicationController
   end
 
   def edit
-    @destination = Destination.find_by(params[:id])
+    @destination = Destination.find_by(user_id: current_user.id)
+    if @destination.blank?
+      redirect_to new_destination_path
+    end
   end
+
+
 
   def update
     @destination = Destination.find(params[:id])
