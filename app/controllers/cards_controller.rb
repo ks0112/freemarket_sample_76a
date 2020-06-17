@@ -7,7 +7,6 @@ class CardsController < ApplicationController
     redirect_to card_path(current_user.id) if card.exists?
   end
 
-
   def pay #payjpとCardのデータベース作成
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     #保管した顧客IDでpayjpから情報取得

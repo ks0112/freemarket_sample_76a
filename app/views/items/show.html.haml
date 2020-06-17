@@ -7,10 +7,6 @@
           %h2.itemBox__name
             sampletext
             = @item.name
-            -# = link_to "支払い", buy_item_path(@item.id)
-            -# = form_tag(action: :buy, method: :post) do
-            -#   = hidden_field_tag :item, params[@item.id]
-            -#   %button 購入する
             = link_to "購入確認", item_purchases_path(@item.id)
 
           .itemBox__body

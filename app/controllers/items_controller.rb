@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
+  before_action :set_item,only:[:buy, :show]
   #削除予定
   # before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
 
@@ -36,7 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   def edit
@@ -71,8 +72,9 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    @item = Item.find(params[:id])
-    card = Card.where(user_id: current_user.id).first
+    # @item = Item.find(params[:id])
+    # card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
     :amount => @item.price,
@@ -103,5 +105,9 @@ class ItemsController < ApplicationController
 
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
