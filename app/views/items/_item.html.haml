@@ -5,7 +5,7 @@
     - item.images.each_with_index do |image, index|
       - if index == 0
         = link_to image_tag("#{item.images.first.image}", width: '200', height: '200'), item_path(item.id), class: "product__body__lists__list__list-img__image" 
-          - if item.buyer_id.present?
+          - unless item.buyer_id.blank?
         .sold-tag
           .sold-tag__title sold out
     .product__body__lists__list__detail

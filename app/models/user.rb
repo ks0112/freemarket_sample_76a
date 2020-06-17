@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
 
   # パスワード英字数字１文字かつ７文字以上のバリデーション↓
-  validates :password, format: { with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i}
+  validates :password, format: { with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,100}+\z/i}
   # 全角のバリデーション↓
   validate :name_em
   validate :name_kana_em
