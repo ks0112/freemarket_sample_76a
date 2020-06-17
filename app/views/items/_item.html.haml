@@ -3,7 +3,7 @@
   .product__body__lists__list
     .product__body__lists__list__list-img
       = image_tag item.images[0].image.url, class: "product__body__lists__list__list-img__image"
-      - if item.buyer_id || item.id.blank
+      - unless item.buyer_id.blank?
         .sold-tag
           .sold-tag__title sold out
     .product__body__lists__list__detail

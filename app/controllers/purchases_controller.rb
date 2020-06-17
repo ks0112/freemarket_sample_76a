@@ -12,13 +12,14 @@ class PurchasesController < ApplicationController
     # #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
     # @default_card_information = customer.cards.retrieve(card.card_id)
     # end
-    if card.blank?
-      #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_card_path
-    elsif current_user.destinations.blank? then
+    unless @item.buyer_id.blank?
+      redirect_to root_path and return
+    end
+    if current_user.destinations.blank?
       redirect_to new_destination_path
-    elsif @item.buyer_id || @item.id.blank then
-      redirect_to root_path
+    elsif card.blank?
+      #登録された情報がない場合にカード登録画面に移動
+      redirect_to new_card_path, data: { turbolinks: false}
     else
     Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
     #保管した顧客IDでpayjpから情報取得
@@ -37,8 +38,7 @@ class PurchasesController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy' #日本円
   )
-  @item.update( buyer_id: current_user.id)
-  # redirect_to action: 'done' #完了画面に移動
+  @item.update( buyer_id: current_user.id) #seller_idに購入者のuser_idを追加し、製品のステータスをsold outに変更
   redirect_to root_path
   end
 
