@@ -9,7 +9,7 @@ class CardsController < ApplicationController
 
 
   def pay #payjpとCardのデータベース作成
-    Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
       redirect_to new_card_path
@@ -27,6 +27,7 @@ class CardsController < ApplicationController
     end
   end
 
+  #削除予定
   # def buy #クレジット購入
   #     @item = Item.find(params[:item_id])
   #    # 購入した際の情報を元に引っ張ってくる
@@ -54,7 +55,7 @@ class CardsController < ApplicationController
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
-      Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
@@ -67,7 +68,7 @@ class CardsController < ApplicationController
     if card.blank?
       redirect_to new_card_path 
     else
-      Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end

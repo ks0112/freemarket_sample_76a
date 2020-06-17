@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
+  #削除予定
   # before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
 
   require 'payjp'
@@ -72,7 +73,7 @@ class ItemsController < ApplicationController
   def buy
     @item = Item.find(params[:id])
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_6d5bbe82c50db611a63aeefa"
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
     :amount => @item.price,
     :customer => card.customer_id, #顧客ID
