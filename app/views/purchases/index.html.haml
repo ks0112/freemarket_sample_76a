@@ -39,7 +39,7 @@
               - exp_month = @default_card_information.exp_month.to_s
               - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
               = exp_month + " / " + exp_year
-              
+
     .address
       .address__addressinn
         .address__addressinn__addressbox
@@ -48,7 +48,6 @@
             = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
               = icon('fa', 'plus-circle')
               配送先を登録してください
-    
     .purcbtn
       -# = form_with url: root_path, method: :get do |f|
       -#   = f.submit '購入する', class: 'purcbtn__submitbtn'
@@ -58,4 +57,4 @@
 
     .payfooter
       %h1.payfooter__footerimage
-        = link_to (image_tag src="logo-white", size: "140x60"), items_path
+        = link_to (image_tag "logo-white", size: "140x60"), items_path
