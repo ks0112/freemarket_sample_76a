@@ -37,37 +37,47 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.update(item_update_params)
-    # @images = Image.where(item_id: @item.id)
-    # image_form_count = item_params_update[:item_images_attributes].to_hash.length
-    # image_count = @images.length
-    # delete_image_count = 0
-    # count = 0
-    # while count < image_count do
-    #   if item_params_update[:item_images_attributes].values[count][:"_destroy"] == "1"
-    #     delete_image_count += 1
-    #   end
-    #   count += 1
-    # end
-    # if delete_image_count != image_count || image_form_count != image_count
-    #   @item.update(item_params_update)
-    #   redirect_to root_path
-    # else
-    #   redirect_to edit_item_path(params[:id])
-    # end
-
+    # @item = Item.find(params[:id])
+    # @item.update(item_update_params)
     product = Item.find(params[:id])
     if product.user_id == current_user.id
-      product.update(product_params)
+      product.update(item_update_params)
       redirect_to root_path
     else
       render 'edit'
     end
-  end
+    end
 
   def edit
+    # 画像取得
     @item = Item.find(params[:id])
+
+    # カテゴリー
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    @category_parent_array = Category.where(ancestry: nil)
+    # @item.build_brand
+    # binding.pry
+
+    # カテゴリー取得
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def destroy
@@ -114,10 +124,16 @@ class ItemsController < ApplicationController
   def set_user
     @user = User.find(current_user.id)
   end
-  # 画像
-  def item_update_params
-    params.require(:item).permit(
-      :name,
-      [images_attributes: [:image, :_destroy, :id]])
+
+  def set_item
+    @item = Item.find(params[:id])
   end
+  # # 画像
+  # def item_update_params
+  #   params.require(:item).permit(
+  #     :name,
+  #     [images_attributes: [:image, :_destroy, :id]])
+  # end
+
+  
 end

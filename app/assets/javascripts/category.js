@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
+      console.log("aaa")
       var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
       return html;
     }
@@ -40,6 +41,7 @@ $(document).on('turbolinks:load', function(){
       var parent_category_id = document.getElementById
       ('parent_category').value; //選択された親カテゴリーの名前を取得
       if (parent_category_id != "---"){ //親カテゴリーが初期値でないことを確認
+        console.log("ok")
         $.ajax({
           url: '/items/category/get_category_children',
           type: 'GET',
@@ -47,6 +49,7 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
         .done(function(children){
+          console.log(children)
           $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
           $('#grandchildren_wrapper').remove();
           var insertHTML = '';
@@ -75,6 +78,7 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
         .done(function(grandchildren){
+          console.log(grandchildren)
           if (grandchildren.length != 0) {
             $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除する
             var insertHTML = '';
