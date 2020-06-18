@@ -37,16 +37,18 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # @item = Item.find(params[:id])
-    # @item.update(item_update_params)
+
     product = Item.find(params[:id])
-    if product.user_id == current_user.id
-      product.update(item_update_params)
+    if product.seller_id == current_user.id
+      product.update(product_params)
+  
       redirect_to root_path
     else
       render 'edit'
     end
-    end
+
+    
+  end
 
   def edit
     # 画像取得
@@ -81,6 +83,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    image = Image.find(params[:id])
+    image.destroy
   end
 
 
@@ -128,12 +132,13 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  # # 画像
-  # def item_update_params
-  #   params.require(:item).permit(
-  #     :name,
-  #     [images_attributes: [:image, :_destroy, :id]])
-  # end
+
+  end
+
+  def product_params
+    params.require(:item).permit(:name, :description, :price, :cost_id, :days_id,:category_id,:status_id, :prefecture_id,
+    images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name]).merge(seller_id: current_user.id)
+  end
 
   
 end

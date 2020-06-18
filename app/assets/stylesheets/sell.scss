@@ -110,7 +110,10 @@
     //file_fieldのcss
     .hidden-content {
       .hidden-field {
-        // display: none;
+        display: none;
+      }
+      .hidden-checkbox{
+        display: none;
       }
     }
   }
