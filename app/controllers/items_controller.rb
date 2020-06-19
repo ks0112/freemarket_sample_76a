@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
-  before_action :set_item, only:[:show, :destroy, :update, :purchase, :payment]
-
+  before_action :set_category, only: [:new, :edit, :update]
+  before_action :set_item, only:[:edit, :show, :destroy, :update, :purchase, :payment]
 
   def index
     @item = Item.limit(3).order('created_at DESC')
@@ -16,10 +16,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
     @item.build_brand
   end
 
@@ -28,61 +24,42 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @item = Item.new(item_params)
+      # @item = Item.new(item_params)
       render new_item_path
     end
   end
 
-  def show
-  end
-
-  def update
-    # @item = Item.find(params[:id])
-    # @item.update(item_update_params)
-    product = Item.find(params[:id])
-    if product.user_id == current_user.id
-      product.update(item_update_params)
-      redirect_to root_path
-    else
-      render 'edit'
-    end
-    end
-
   def edit
-    # 画像取得
-    @item = Item.find(params[:id])
-
-    # カテゴリー
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
-    # @item.build_brand
-    # binding.pry
-
-    # カテゴリー取得
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-    
-
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      @category_parent_array << parent
     end
-
     @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
       @category_children_array << children
     end
-
     @category_grandchildren_array = []
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
     end
   end
 
-  def destroy
+  def update
+    if @item.seller_id == current_user.id
+      @item.update(item_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
+  def show
+  end
+
+  def destroy
+  end
 
   def p_exhibiting #出品中のアクション
 
@@ -91,20 +68,18 @@ class ItemsController < ApplicationController
   def p_soldout    #売却済みのアクション
 
   end
-  # 以下全て、formatはjsonのみ
-  # 親カテゴリーが選択された後に動くアクション
+
   def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    # ここでfind_byを使うことでレディーしか取れてなかった
-    @category_children = Category.find(params[:parent_id]).children
+    @category_children = Category.find(params[:parent_name]).children
   end
 
-  # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
+  def set_category
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 
   private
 
@@ -135,5 +110,4 @@ class ItemsController < ApplicationController
   #     [images_attributes: [:image, :_destroy, :id]])
   # end
 
-  
 end
