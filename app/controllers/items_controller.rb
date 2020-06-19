@@ -53,14 +53,14 @@ class ItemsController < ApplicationController
     else
       render 'edit'
     end
-    product = Item.find(params[:id])
-    if product.seller_id == current_user.id
-      product.update(product_params)
+    # product = Item.find(params[:id])
+    # if product.seller_id == current_user.id
+    #   product.update(product_params)
 
-      redirect_to root_path
-    else
-      render 'edit'
-    end
+    #   redirect_to root_path
+    # else
+    #   render 'edit'
+    # end
   end
 
   def destroy
@@ -119,9 +119,9 @@ class ItemsController < ApplicationController
   end
 
 
-  def product_params
-    params.require(:item).permit(:name, :description, :price, :cost_id, :days_id,:category_id,:status_id, :prefecture_id,
-    images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name]).merge(seller_id: current_user.id)
-  end
+  # def product_params
+  #   params.require(:item).permit(:name, :description, :price, :cost_id, :days_id,:category_id,:status_id, :prefecture_id,
+  #   images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name]).merge(seller_id: current_user.id)
+  # end
 
 end

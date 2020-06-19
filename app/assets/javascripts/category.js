@@ -45,8 +45,8 @@ $(document).on('turbolinks:load', function(){
           $('#grandchild_category').remove();
         })
       }else{
-        $('#child_categoryr').remove(); //親カテゴリーが初期値になった時、子以下を削除する
         $('#child_category').remove();
+        $('#grandchild_category').remove();
       }
     });
     // 子カテゴリー選択後のイベント
