@@ -22,6 +22,7 @@
                     .delete-box
                       .delete-btn
                         %span 削除
+
             .label-content
               //プレビューの数に合わせてforオプションを指定
               = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
@@ -31,7 +32,7 @@
 
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = i.file_field :image, class: "hidden-field"
-                -# = i.check_box:_destroy, class: "hidden-checkbox"
+                = i.check_box :_destroy, class: "hidden-checkbox"
 
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @item.images.length.upto(3) do |i|

@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
         $(box).attr('id', `delete_btn_${index}`);
       })
       var count = $('.preview-box').length;
-      //プレビューが5あるときは、投稿ボックスを消しておく
+      //プレビューが4あるときは、投稿ボックスを消しておく
       if (count == 4) {
         $('.label-content').hide();
       }
@@ -106,7 +106,7 @@ $(document).on('turbolinks:load', function(){
         $(`#item_images_attributes_${id}_image`).val("");
         var count = $('.preview-box').length;
         //4個めが消されたらラベルを表示
-        if (count == 4) {
+        if (count == 3) {
           $('.label-content').show();
         }
         setLabel(count);
