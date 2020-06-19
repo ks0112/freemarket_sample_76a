@@ -2,11 +2,10 @@
 - @items.each do |item|
   .postTitle
     .postImage
-      = image_tag item.images[0].image.url, class: "postImage__itemimage" 
+      = image_tag item.images[0].image.url, class: "postImage__itemimage"
     .post_day 出品日　
-    .post_date 
+    .post_date
       = item.created_at.strftime('%Y/%m/%d')
       -# .item_name 商品名
       .postText
-        = link_to item.name, users_path
-        
+        = link_to item.name, image_path(item.id)
