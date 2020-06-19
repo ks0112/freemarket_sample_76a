@@ -73,10 +73,10 @@
                               -# %label.sab-title カテゴリー
                               -# %span.required 必須
                             .exhibitionPage__main__contents__detail__category__choose
-                              -# = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'category-wrapper__category form-control', id: 'parent_category'}
-                              -# = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
-                              -# = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
-                              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, {id: "parent_category"}
+                              = f.collection_select :parent_name, @category_parent_array, :id, :name, {selected: @item.category.parent.parent.id }, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+                              = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+                              = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+                              -# = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, {id: "parent_category"}
                               -# %svg{“aria-hidden” => “true”, :fill => “#888888”, “fill-rule” => “evenodd”, :height => “24", :viewbox => “0 0 24 24”, :width => “24"}
                               -#   %path{:d => “M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z”}
                 .form-group__field

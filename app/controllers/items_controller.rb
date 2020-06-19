@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     product = Item.find(params[:id])
     if product.seller_id == current_user.id
       product.update(product_params)
-  
+      # binding.pry
       redirect_to root_path
     else
       render 'edit'
@@ -51,31 +51,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # 画像取得
+      # 画像取得
     @item = Item.find(params[:id])
-
-    # カテゴリー
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
-    # @item.build_brand
-    # binding.pry
-
     # カテゴリー取得
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-    
-
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      @category_parent_array << parent
     end
-
     @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
       @category_children_array << children
     end
-
     @category_grandchildren_array = []
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren

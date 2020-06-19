@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   # resources :items
-  resources :users, only: :show
+  resources :users, only: [:show,:index]
   resources :images
   resources :destinations
   resources :cards, only: [:new, :show, :destroy] do
