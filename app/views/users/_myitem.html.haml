@@ -1,5 +1,5 @@
 -# 新着アイテムページ
-- @item.each do |item|
+- @items.each do |item|
   .postTitle
     .postImage
       = image_tag item.images[0].image.url, class: "postImage__itemimage" 
@@ -8,5 +8,5 @@
       = item.created_at.strftime('%Y/%m/%d')
       -# .item_name 商品名
       .postText
-        = link_to item.name,  image_path(item.id)
+        = link_to item.name, users_path
         

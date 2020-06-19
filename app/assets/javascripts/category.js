@@ -70,6 +70,7 @@ $(document).on('turbolinks:load', function(){
           }
         })
         .fail(function(){
+          $('#grandchild_category').remove(); //edit時孫の削除
           alert('孫カテゴリー取得に失敗しました');
         })
       }else{
