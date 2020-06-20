@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render new_item_path
+      # @item = Item.new(item_params)
+      redirect_to new_item_path
     end
   end
 
@@ -47,19 +48,13 @@ class ItemsController < ApplicationController
 
   def update
     if @item.seller_id == current_user.id
-      @item.update(item_params)
-      redirect_to root_path
-    else
-      render 'edit'
+      @item.category_id = nil unless params[:item][:category_id]
+      if @item.update(item_params)
+        redirect_to root_path
+      else
+        redirect_to edit_item_path(@item)
+      end
     end
-    # product = Item.find(params[:id])
-    # if product.seller_id == current_user.id
-    #   product.update(product_params)
-
-    #   redirect_to root_path
-    # else
-    #   render 'edit'
-    # end
   end
 
   def destroy
