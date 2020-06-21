@@ -2,8 +2,10 @@
 - @item.each do |item|
   .product__body__lists__list
     .product__body__lists__list__list-img
-      = image_tag item.images[0].image.url, class: "product__body__lists__list__list-img__image"
-      - if item.buyer_id == 1
+    - item.images.each_with_index do |image, index|
+      - if index == 0
+        = link_to image_tag("#{image.image.url}", width: '200', height: '200'), item_path(item.id), class: "product__body__lists__list__list-img__image"
+      - unless item.buyer_id.blank?
         .sold-tag
           .sold-tag__title sold out
     .product__body__lists__list__detail

@@ -1,16 +1,29 @@
 class DestinationsController < ApplicationController
   def index
   end
+  def new
+    destination = Destination.find_by(user_id: current_user.id)
+    unless destination.blank?
+      redirect_to edit_destination_path(destination.id)
+    else
+    @destination = Destination.new
+    end
+  end
+  # def new
+  #   destination = Destination.where(user_id: current_user.id)
+  #   redirect_to edit_destination_path(current_user.id) if destination.exists?
+  #   @destination = Destination.new
+  # end
 
-  def show
+  def create
+    @destination = Destination.create(destination_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def edit
-    destination = Destination.find_by(user_id: current_user.id)
-    if destination.blank?
-      redirect_to new_destination_path 
-    else
-    @destination = Destination.find(params[:id])
+    @destination = Destination.find_by(user_id: current_user.id)
+    if @destination.blank?
+      redirect_to new_destination_path
     end
   end
 
@@ -20,15 +33,7 @@ class DestinationsController < ApplicationController
     redirect_to edit_destination_path(current_user.id)
   end
 
-  def new
-    destination = Destination.where(user_id: current_user.id)
-    redirect_to edit_destination_path(current_user.id) if destination.exists?
-    @destination = Destination.new
-  end
-
-  def create
-    @destination = Destination.create(destination_params)
-    redirect_to edit_destination_path(current_user.id)
+  def show
   end
 
   private

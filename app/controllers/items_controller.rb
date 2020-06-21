@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
-  before_action :set_category, only: [:new, :edit, :update]
+  # before_action :set_category, only: [:new, :edit, :update]
   before_action :set_item, only:[:edit, :show, :destroy, :update, :purchase, :payment]
 
   def index
@@ -63,6 +63,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def p_exhibiting #出品中のアクション
@@ -78,10 +82,20 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
   end
-
-  def set_category
-    @category_parent_array = Category.where(ancestry: nil)
+  def buy
+    card = Card.find_by(user_id: current_user.id)
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    Payjp::Charge.create(
+    :amount => @item.price,
+    :customer => card.customer_id, #顧客ID
+    :currency => 'jpy' #日本円
+  )
+    @item.update( buyer_id: current_user.id)
+    redirect_to action: 'done' #完了画面に移動
   end
+  # def set_category
+  #   @category_parent_array = Category.where(ancestry: nil)
+  # end
 
   private
 
