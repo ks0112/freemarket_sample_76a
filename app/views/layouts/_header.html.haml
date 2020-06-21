@@ -3,7 +3,7 @@
   .main-header__inner
     .main-header__inner__main
       %h1.main-header__inner__main__icon
-        =link_to image_tag("logo.png", width: "140"), root_path
+        =link_to image_tag("logo.png", width: "140")
       .main-header__inner__main__searchbox
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
           %input#searchInput.searchbox--input{:name => "key", :placeholder => "キーワードから探す"}
@@ -25,7 +25,6 @@
             = link_to "新規商品登録", new_item_path
           %li.main-header__inner__nav__listright__item.listright__item--mypage
             = link_to "マイページ", user_path(current_user)
-            = current_user.id
         - else
           %li.main-header__inner__nav__listright__item.listright__item--login
             = link_to "ログイン", new_user_session_path

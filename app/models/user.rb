@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
 
   # パスワード英字数字１文字かつ７文字以上のバリデーション↓
-  validates :password, format: { with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,100}+\z/i}
+  validate :encrypted_password
   # 全角のバリデーション↓
   validate :name_em
   validate :name_kana_em
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
   # def encrypted_password
   #   # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
-    # return if password.blank? || password =~ /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{7,70}$/
+  #   return if password.blank? || password =~ /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{7,70}$/
   #   # blank?-値がない状態がture
   #   errors.add :password, "は英字と数字をそれぞれ1文字以上含める必要があります"
   #   # password.blank? || password =~ のどちらも"false"だからエラーになり、エラー表示される
