@@ -3,7 +3,7 @@
   .mypage-main__left
     = render "users/options"
   .mypage-main__right
-    .mypage-main__right__title
+    .mypage-main__right__title 
       %h1 住所登録
     .mypage-main__right__main__destination
       .mypage-main__right__main__destination__form
@@ -104,6 +104,7 @@
 -#             = link_to root_path, class: 'payment__payinn__paymentbox__paymentlink__paylinkicon' do
 -#               = icon('fa', 'plus-circle')
 -#               %span クレジットカード登録してください
+              
 -#     .address
 -#       .address__addressinn
 -#         .address__addressinn__addressbox
@@ -112,6 +113,7 @@
 -#             = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
 -#               = icon('fa', 'plus-circle')
 -#               配送先を登録してください
+    
 -#     .purcbtn
 -#       = form_with url: root_path, method: :get do |f|
 -#         = f.submit '購入する', class: 'purcbtn__submitbtn'
