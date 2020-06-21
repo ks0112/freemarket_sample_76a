@@ -58,8 +58,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    image = Image.find(params[:id])
-    image.destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render action: :show
+    end
   end
 
   def show
