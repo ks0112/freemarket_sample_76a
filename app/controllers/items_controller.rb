@@ -66,11 +66,9 @@ class ItemsController < ApplicationController
   end
 
   def p_exhibiting #出品中のアクション
-
   end
 
   def p_soldout    #売却済みのアクション
-
   end
 
   def get_category_children
