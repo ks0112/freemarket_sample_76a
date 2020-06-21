@@ -30,20 +30,20 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    grandchild_category = @item.category
-    child_category = grandchild_category.parent
+    @grandchild_category = @item.category
+    @child_category = @grandchild_category.parent
+    @category_parent = @child_category.parent
+    @category = Category.find(params[:id])
+    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
+    @category_children = @item.category.parent.parent.children
+    # 紐づく孫カテゴリーの一覧を配列で取得
+    @category_grandchildren = @item.category.parent.children
     @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent
-    end
+    @category_parent_array = Category.where(ancestry: nil)
     @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
+    @category_children_array = Category.where(ancestry: @child_category.ancestry)
     @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
+    @category_grandchildren_array = Category.where(ancestry: @grandchild_category.ancestry)
   end
 
   def update
@@ -60,13 +60,9 @@ class ItemsController < ApplicationController
   def destroy
     image = Image.find(params[:id])
     image.destroy
-
   end
 
   def show
-  end
-
-  def destroy
   end
 
   def p_exhibiting #出品中のアクション
