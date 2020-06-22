@@ -4,7 +4,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :cost
   belongs_to_active_hash :days
-  belongs_to :brand, dependent: :destroy
+  belongs_to :category, dependent: :destroy
+  belongs_to :brand, dependent: :destroy, optional: :true
   accepts_nested_attributes_for :brand
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
