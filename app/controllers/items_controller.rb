@@ -122,11 +122,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
-  # def product_params
-  #   params.require(:item).permit(:name, :description, :price, :cost_id, :days_id,:category_id,:status_id, :prefecture_id,
-  #   images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name]).merge(seller_id: current_user.id)
-  # end
-
 end
