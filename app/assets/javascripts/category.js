@@ -23,7 +23,6 @@ $(document).on('turbolinks:load', function(){
     }
     // 親カテゴリー選択後のイベント
     $(document).on('change','#parent_category', function(){
-      console.log(this)
       let parent_category_id = $('#parent_category').val(); //選択された親カテゴリーの名前を取得
       if (parent_category_id != ""){ //親カテゴリーが初期値でないことを確認
         $.ajax({
@@ -33,7 +32,6 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
         .done(function(children){
-          // console.log(this)
           $('#child_category').remove(); //親が変更された時、子以下を削除する
           $('#grandchild_category').remove();
           let insertHTML = '';

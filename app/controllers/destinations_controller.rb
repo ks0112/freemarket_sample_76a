@@ -9,11 +9,6 @@ class DestinationsController < ApplicationController
     　@destination = Destination.new
     end
   end
-  # def new
-  #   destination = Destination.where(user_id: current_user.id)
-  #   redirect_to edit_destination_path(current_user.id) if destination.exists?
-  #   @destination = Destination.new
-  # end
 
   def create
     @destination = Destination.create(destination_params)
