@@ -334,3 +334,46 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+Item.create!(
+  [
+    {
+      id: '1',
+      buyer_id: '2',
+      seller_id: '1',
+      name: '服',
+      description:'test1',
+      price:'1000',
+      category_id:'4',
+      status_id:'1',
+      cost_id:'1',
+      days_id:'1',
+    },
+    {
+      id: '2',
+      seller_id: '2',
+      name: '靴',
+      description:'test2',
+      price:'2000',
+      category_id:'204',
+      status_id:'2',
+      cost_id:'2',
+      days_id:'2',
+    }
+  ]
+)
+
+Image.create!(
+  [
+    {
+      id: '1',
+      image: File.open('./app/assets/images/test1.jpeg'),
+      item_id: '1'
+    },
+    {
+      id: '2',
+      image: File.open('./app/assets/images/test2.jpeg'),
+      item_id: '2'
+    },
+  ]
+)
