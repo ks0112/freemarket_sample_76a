@@ -80,6 +80,10 @@ $(document).on('turbolinks:load', function(){
         if (count == 4) {
           $('.label-content').hide();
         }
+         //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
+         if ($(`#item_images_attributes_${id}__destroy`)){
+          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        } 
 
         //ラベルのwidth操作
         setLabel();
@@ -119,7 +123,7 @@ $(document).on('turbolinks:load', function(){
         //投稿編集時
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
         //4個めが消されたらラベルを表示
-        if (count == 4) {
+        if (count == 3) {
           $('.label-content').show();
         }
 
