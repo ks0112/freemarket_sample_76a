@@ -9,15 +9,13 @@ class DestinationsController < ApplicationController
       @destination = Destination.new
     end
   end
-  # def new
-  #   destination = Destination.where(user_id: current_user.id)
-  #   redirect_to edit_destination_path(current_user.id) if destination.exists?
-  #   @destination = Destination.new
-  # end
 
   def create
     @destination = Destination.create(destination_params)
     redirect_back(fallback_location: root_path)
+  end
+
+  def show
   end
 
   def edit
@@ -31,9 +29,6 @@ class DestinationsController < ApplicationController
     @destination = Destination.find(params[:id])
     @destination.update(destination_params)
     redirect_to edit_destination_path(current_user.id)
-  end
-
-  def show
   end
 
   private
