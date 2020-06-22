@@ -28,6 +28,7 @@ class PurchasesController < ApplicationController
     #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
     @default_card_information = customer.cards.retrieve(card.card_id)
     end
+    @destination = Destination.find_by(user_id: current_user.id)
   end
 
   def buy
