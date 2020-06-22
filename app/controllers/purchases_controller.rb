@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_item, only:[:buy, :index]
-
+  
   def index
     card = Card.find_by(user_id: current_user.id)
     # if card.blank?
