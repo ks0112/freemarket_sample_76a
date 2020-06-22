@@ -16,7 +16,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.create(
         card: params['payjp-token'],
         metadata: {user_id: current_user.id}
-      ) 
+      )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to card_path(current_user.id)
@@ -65,7 +65,7 @@ class CardsController < ApplicationController
   def show #Cardのデータpayjpに送り情報を取り出す
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
-      redirect_to new_card_path 
+      redirect_to new_card_path
     else
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(card.customer_id)
