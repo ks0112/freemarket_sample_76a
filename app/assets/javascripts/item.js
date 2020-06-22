@@ -76,8 +76,8 @@ $(document).on('turbolinks:load', function(){
         //イメージを追加
         $(`#preview-box__${id} img`).attr('src', `${image}`);
         var count = $('.preview-box').length;
-        //プレビューが5個あったらラベルを隠す 
-        if (count == 4) { 
+        //プレビューが5個あったらラベルを隠す
+        if (count == 4) {
           $('.label-content').hide();
         }
 
@@ -102,7 +102,7 @@ $(document).on('turbolinks:load', function(){
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
-        //フォームの中身を削除 
+        //フォームの中身を削除
         $(`#item_images_attributes_${id}_image`).val("");
         var count = $('.preview-box').length;
         //4個めが消されたらラベルを表示
