@@ -94,6 +94,10 @@
   color: #fff;
   background-color: #272727;
   text-align: center;
+  width:100%;
+  // position: absolute;/*←相対位置*/
+  //   padding-bottom: 120px;/*←footerの高さ*/
+  //   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
   &__contents {
     max-width: 840px;
     margin: 0 auto;

@@ -60,7 +60,6 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
         .done(function(grandchildren){
-          // console.log(this)
           if (grandchildren.length != 0) {
             $('#grandchild_category').remove(); //子が変更された時、孫以下を削除する
             let insertHTML = '';

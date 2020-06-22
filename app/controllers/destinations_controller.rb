@@ -10,15 +10,6 @@ class DestinationsController < ApplicationController
     end
   end
 
-  def new
-    destination = Destination.find_by(user_id: current_user.id)
-    unless destination.blank?
-      redirect_to edit_destination_path(destination.id)
-    else
-    @destination = Destination.new
-    end
-  end
-
   def create
     @destination = Destination.create(destination_params)
     redirect_back(fallback_location: root_path)

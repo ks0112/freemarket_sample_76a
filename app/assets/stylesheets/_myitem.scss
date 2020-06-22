@@ -5,30 +5,49 @@
   font-size: 30px;
   font-weight: bold;
   display:flex;
-  // text-decoration : underline;
+  border-bottom: solid 1px gray;
+  background-color: #f5f5f5;
 }
-.postdate{
-  margin-right: 350px;
-  text-align: right;
+.post_day{
+  padding-right:20px;
+  padding-top:10px;
+  font-size:20px;
+}
+.post_date{
+  // margin-right: 350px;
+  padding-top:15px;
+  // text-align: right;
   height: 1px;
-  font-size: 20px;
+  font-size: 24px;
 }
-.postText{
-  padding-right: 100px;
-  color: red;
-}
+
+
+  .postText{
+    &__nametext{
+      font-size:25px;
+      text-decoration: none;
+      color: black;
+    }
+    &__nametext:hover{
+      color:blue;
+    }
+  }
+
+
 .postImage{
   text-align: left;
   font-size: 20px;
-  width: 200px;
-  margin-left: 150px;
+  width: 150px;
+  margin-left: 100px;
   &__itemimage{
     border: solid 1px;
     height: 100px;
     width: 100px;
   }
 }
-
+.buyercomp{
+  color:red;
+}
 
 
 
