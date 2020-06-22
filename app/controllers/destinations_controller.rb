@@ -6,7 +6,7 @@ class DestinationsController < ApplicationController
     unless destination.blank?
       redirect_to edit_destination_path(destination.id)
     else
-    @destination = Destination.new
+      @destination = Destination.new
     end
   end
   # def new

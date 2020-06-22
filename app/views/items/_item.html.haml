@@ -4,7 +4,7 @@
     .product__body__lists__list__list-img
     - item.images.each_with_index do |image, index|
       - if index == 0
-        = link_to image_tag("#{image.image.url}", width: '200', height: '200'), item_path(item.id), class: "product__body__lists__list__list-img__image"
+        = link_to image_tag("#{image.image.url}", width: '220', height: '200'), item_path(item.id), class: "product__body__lists__list__list-img__image"
       - unless item.buyer_id.blank?
         .sold-tag
           .sold-tag__title sold out

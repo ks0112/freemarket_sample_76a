@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function(){
                     </div>
                     <div class="lower-box">
                       <div class="update-box">
-                        <label class="edit_btn">編集</label>
+                        <label class="edit_btn"></label>
                       </div>
                       <div class="delete-box" id="delete_btn_${count}">
                         <span>削除</span>

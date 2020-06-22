@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # @item = Item.new(item_params)
       redirect_to new_item_path
     end
   end
@@ -123,10 +122,5 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-
-  # def product_params
-  #   params.require(:item).permit(:name, :description, :price, :cost_id, :days_id,:category_id,:status_id, :prefecture_id,
-  #   images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name]).merge(seller_id: current_user.id)
-  # end
 
 end
