@@ -25,7 +25,6 @@
             = link_to "新規商品登録", new_item_path
           %li.main-header__inner__nav__listright__item.listright__item--mypage
             = link_to "マイページ", user_path(current_user)
-            = current_user.id
         - else
           %li.main-header__inner__nav__listright__item.listright__item--login
             = link_to "ログイン", new_user_session_path

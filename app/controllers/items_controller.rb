@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only:[:edit, :show, :destroy, :update, :purchase, :payment, :buy]
   require 'payjp'
 
-
   def index
     @item = Item.limit(3).order('created_at DESC')
     @womencategory = Item.where(category_id: 1..199).order('created_at DESC').limit(3)
@@ -94,9 +93,10 @@ class ItemsController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy' #日本円
   )
-  @item.update( buyer_id: current_user.id)
-  redirect_to action: 'done' #完了画面に移動
+    @item.update( buyer_id: current_user.id)
+    redirect_to action: 'done' #完了画面に移動
   end
+
 
   private
   def item_params

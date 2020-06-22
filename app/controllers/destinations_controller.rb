@@ -1,6 +1,14 @@
 class DestinationsController < ApplicationController
   def index
   end
+  def new
+    destination = Destination.find_by(user_id: current_user.id)
+    unless destination.blank?
+      redirect_to edit_destination_path(destination.id)
+    else
+      @destination = Destination.new
+    end
+  end
 
   def new
     destination = Destination.find_by(user_id: current_user.id)
@@ -10,11 +18,6 @@ class DestinationsController < ApplicationController
     @destination = Destination.new
     end
   end
-  # def new
-  #   destination = Destination.where(user_id: current_user.id)
-  #   redirect_to edit_destination_path(current_user.id) if destination.exists?
-  #   @destination = Destination.new
-  # end
 
   def create
     @destination = Destination.create(destination_params)
