@@ -60,28 +60,31 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @grandchild_category = @item.category
-    @child_category = @grandchild_category.parent
-    @category_parent = @child_category.parent
-    @category = Category.find(params[:id])
-    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
-    @category_children = @item.category.parent.parent.children
-    # 紐づく孫カテゴリーの一覧を配列で取得
-    @category_grandchildren = @item.category.parent.children
-    @category_parent_array = []
-    @category_parent_array = Category.where(ancestry: nil)
-    @category_children_array = []
-    @category_children_array = Category.where(ancestry: @child_category.ancestry)
-    @category_grandchildren_array = []
-    @category_grandchildren_array = Category.where(ancestry: @grandchild_category.ancestry)
+    if current_user.id == @item.seller.id
+      @grandchild_category = @item.category
+      @child_category = @grandchild_category.parent
+      @category_parent = @child_category.parent
+      @category = Category.find(params[:id])
+      # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
+      @category_children = @item.category.parent.parent.children
+      # 紐づく孫カテゴリーの一覧を配列で取得
+      @category_grandchildren = @item.category.parent.children
+      @category_parent_array = []
+      @category_parent_array = Category.where(ancestry: nil)
+      @category_children_array = []
+      @category_children_array = Category.where(ancestry: @child_category.ancestry)
+      @category_grandchildren_array = []
+      @category_grandchildren_array = Category.where(ancestry: @grandchild_category.ancestry)
+    else
+      redirect_to root_path
+    end
   end
 
   def update
     if @item.seller_id == current_user.id
       @item.category_id = nil unless params[:item][:category_id]
       if @item.update(item_params)
-        # binding.pry
-        redirect_to root_path
+        redirect_to root_path and return
       else
         redirect_to edit_item_path(@item)
       end
@@ -89,10 +92,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path
+    if @item.seller_id == current_user.id
+      if @item.destroy
+        redirect_to root_path and return
+      else
+        render action: :show
+      end
     else
-      render action: :show
+      redirect_to root_path
     end
   end
 
