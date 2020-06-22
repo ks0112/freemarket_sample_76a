@@ -80,6 +80,7 @@ class ItemsController < ApplicationController
     if @item.seller_id == current_user.id
       @item.category_id = nil unless params[:item][:category_id]
       if @item.update(item_params)
+        # binding.pry
         redirect_to root_path
       else
         redirect_to edit_item_path(@item)
