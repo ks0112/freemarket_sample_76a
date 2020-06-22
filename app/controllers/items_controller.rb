@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
   before_action :set_category, only: [:new, :edit, :update]
-  before_action :set_item, only:[:edit, :show, :destroy, :update, :purchase, :payment]
+  before_action :set_item, only:[:edit, :show, :destroy, :update, :purchase, :payment, :buy]
+  require 'payjp'
+
 
   def index
     @item = Item.limit(3).order('created_at DESC')
@@ -27,6 +29,13 @@ class ItemsController < ApplicationController
       # @item = Item.new(item_params)
       redirect_to new_item_path
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def edit
@@ -58,11 +67,19 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
     image = Image.find(params[:id])
     image.destroy
   end
+=======
 
-  def show
+    if @item.destroy
+      redirect_to root_path
+    else
+      render action: :show
+    end
+>>>>>>> parent of 6d3725e... Revert "Merge branch 'master' into 売り編集機能"
+
   end
 
   def p_exhibiting #出品中のアクション
@@ -79,8 +96,23 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
-  def set_category
-    @category_parent_array = Category.where(ancestry: nil)
+
+
+
+  def buy
+    card = Card.find_by(user_id: current_user.id)
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    Payjp::Charge.create(
+    :amount => @item.price,
+    :customer => card.customer_id, #顧客ID
+    :currency => 'jpy' #日本円
+  )
+  @item.update( buyer_id: current_user.id)
+  redirect_to action: 'done' #完了画面に移動
+  end
+
+  def done
+
   end
 
   private
@@ -105,11 +137,10 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
-  # def product_params
-  #   params.require(:item).permit(:name, :description, :price, :cost_id, :days_id,:category_id,:status_id, :prefecture_id,
-  #   images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name]).merge(seller_id: current_user.id)
-  # end
+  
+  # 後日確認
+  def set_category
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 
 end
