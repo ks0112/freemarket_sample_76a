@@ -32,22 +32,33 @@
         .payment__payinn__paymentbox
           支払い方法
           .payment__payinn__paymentbox__paymentlink
-            = link_to root_path, class: 'payment__payinn__paymentbox__paymentlink__paylinkicon' do
-              = icon('fa', 'plus-circle')
-              %span クレジットカード登録してください
-              = "**** **** **** " + @default_card_information.last4
-              - exp_month = @default_card_information.exp_month.to_s
-              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-              = exp_month + " / " + exp_year
+            -# = link_to root_path, class: 'payment__payinn__paymentbox__paymentlink__paylinkicon' do
+              -# = icon('fa', 'plus-circle')
+              -# %span クレジットカード登録してください
+            = "**** **** **** " + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
 
     .address
       .address__addressinn
         .address__addressinn__addressbox
           配送先
           .address__addressinn__addressbox__addresslink
-            = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
-              = icon('fa', 'plus-circle')
-              配送先を登録してください
+            -# = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
+            -#   = icon('fa', 'plus-circle')
+            .h2 
+            〒
+            = @destination.post_code 
+            .h2      
+            = @destination.prefecture.name
+            = @destination.city
+            = @destination.address
+            = @destination.building_name 
+            .h2 
+            = @destination.family_name
+            = @destination.first_name    
+
     .purcbtn
       -# = form_with url: root_path, method: :get do |f|
       -#   = f.submit '購入する', class: 'purcbtn__submitbtn'

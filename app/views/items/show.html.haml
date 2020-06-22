@@ -10,7 +10,7 @@
             = @item.name
           .itemBox__body
             %ul.itemBox__body__image
-              - @item.images.first(1).each do |image|          
+              - @item.images.first(1).each do |image|
                 %li.itemBox__body__image__mainimage
                   = image_tag image.image_url, size: "560x346"
             %ul.itemBox__body__image__mainimage__subimage
@@ -32,8 +32,8 @@
             %table.itemBox__table--main-table
               %tbody
                 %tr
-                  %th.itemBox__table--main-table--tabletitle 出品者 
-                  %td.itemBox__table--main-table--tableinfo 
+                  %th.itemBox__table--main-table--tabletitle 出品者
+                  %td.itemBox__table--main-table--tableinfo
                     = @item.seller.nickname
                 %tr
                   %th.itemBox__table--main-table--tabletitle カテゴリー
@@ -52,20 +52,19 @@
                     = @item.brand.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 商品の状態
-                  %td.itemBox__table--main-table--tableinfo 
+                  %td.itemBox__table--main-table--tableinfo
                     = @item.status.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 配送料の負担
-                  %td.itemBox__table--main-table--tableinfo 
+                  %td.itemBox__table--main-table--tableinfo
                     = @item.cost.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 発送元の地域
                   %td.itemBox__table--main-table--tableinfo
-                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      = @item.prefecture.name
+                    = @item.prefecture.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 発送の目安
-                  %td.itemBox__table--main-table--tableinfo 
+                  %td.itemBox__table--main-table--tableinfo
                     =@item.days.name
           - if user_signed_in?
             - if user_signed_in? && current_user.id == @item.seller_id
@@ -79,5 +78,3 @@
       .relatedItems
         = link_to "/" , class: "relatedItems__Itemsinfo" do
           トップページに戻る
-
-   

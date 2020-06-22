@@ -6,10 +6,34 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   def index
+    # 新着アイテム
     @item = Item.limit(3).order('created_at DESC')
+    # レディースアイテム
     @womencategory = Item.where(category_id: 1..199).order('created_at DESC').limit(3)
+    # メンズアイテム
     @mencategory = Item.where(category_id: 200..345).order('created_at DESC').limit(3)
+    # ベビー・キッズ
+    @baby = Item.where(category_id: 346..480).order('created_at DESC').limit(3)
+    # インテリア・住まい・小物
+    @interia = Item.where(category_id: 481..624).order('created_at DESC').limit(3)
+    # 本・音楽・ゲームアイテム
     @entertainment = Item.where(category_id: 625..684).order('created_at DESC').limit(3)
+    # おもちゃ・ホビー・グッズ
+    @hobby = Item.where(category_id: 685..797).order('created_at DESC').limit(3)
+    # コスメ・香水・美容
+    @beauty = Item.where(category_id: 798..897).order('created_at DESC').limit(3)
+    # 家電・スマホ・カメラ
+    @phone = Item.where(category_id: 898..983).order('created_at DESC').limit(3)
+    # スポーツ・レジャー
+    @sports = Item.where(category_id: 984..1092).order('created_at DESC').limit(3)
+    # ハンドメイド
+    @handmaid = Item.where(category_id: 1093..1146).order('created_at DESC').limit(3)
+    # チケット
+    @tickt = Item.where(category_id: 1147..1206).order('created_at DESC').limit(3)
+    # 自動車・オートバイ
+    @car = Item.where(category_id: 1207..1269).order('created_at DESC').limit(3)
+    # その他
+    @other = Item.where(category_id: 1270..1338).order('created_at DESC').limit(3)
     @items = Image.includes(:images).order('id DESC').limit(3)
   end
 
@@ -56,6 +80,7 @@ class ItemsController < ApplicationController
     if @item.seller_id == current_user.id
       @item.category_id = nil unless params[:item][:category_id]
       if @item.update(item_params)
+        # binding.pry
         redirect_to root_path
       else
         redirect_to edit_item_path(@item)
