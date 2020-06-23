@@ -5,8 +5,8 @@
 - メルカリクローンのフリーマーケットサイトです。
 - TECH::CAMP 76期短期集中コースAチームで作成。
 - 作成期間 2020/6/2 ~ 2020/6/23
-[![Image from Gyazo](https://i.gyazo.com/9cc134e9089d33d74bdd287f377a3d55.jpg)](https://gyazo.com/9cc134e9089d33d74bdd287f377a3d55)
-[![Image from Gyazo](https://i.gyazo.com/f498e9a1834f4aaa5c3dfd60a0b8a412.jpg)](https://gyazo.com/f498e9a1834f4aaa5c3dfd60a0b8a412)
+![image](https://user-images.githubusercontent.com/64839248/85387107-6056d980-b57f-11ea-9802-63c2959e800a.png)
+![image](https://user-images.githubusercontent.com/64839248/85387281-94ca9580-b57f-11ea-886c-df18d050cfe4.png)
 ## :paperclip: 主な使用言語
 <a><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a> <!-- rubyのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774548-731b2900-2fb4-11ea-99ba-565546c5acb4.png" height="60px;" /></a> <!-- RubyOnRailsのロゴ -->
