@@ -1,27 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h1 align="center">フリーマーケットサイト</h1>
 
-Things you may want to cover:
+- メルカリクローンのフリーマーケットサイトです。
+- TECH::CAMP 76期短期集中コースAチームで作成。
+- 作成期間 2020/6/2 ~ 2020/6/23
+[![Image from Gyazo](https://i.gyazo.com/9cc134e9089d33d74bdd287f377a3d55.jpg)](https://gyazo.com/9cc134e9089d33d74bdd287f377a3d55)
+[![Image from Gyazo](https://i.gyazo.com/f498e9a1834f4aaa5c3dfd60a0b8a412.jpg)](https://gyazo.com/f498e9a1834f4aaa5c3dfd60a0b8a412)
+## :paperclip: 主な使用言語
+<a><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a> <!-- rubyのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774548-731b2900-2fb4-11ea-99ba-565546c5acb4.png" height="60px;" /></a> <!-- RubyOnRailsのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774618-b32edb80-2fb5-11ea-9050-d5929a49e9a5.png" height="60px;" /></a> <!-- Hamlのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774644-115bbe80-2fb6-11ea-822c-568eabde5228.png" height="60px" /></a> <!-- Scssのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774768-d064a980-2fb7-11ea-88ad-4562c59470ae.png" height="65px;" /></a> <!-- jQueryのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
 
-* Ruby version
+## 機能紹介
+- 新規会員登録・ログイン機能
+- ログイン時の商品の出品、商品の編集機能
+- ログインしていない方でも商品の一覧、詳細を閲覧可能です。
+- 住所、クレジットカード登録後商品の購入ができます。
+- 自分が出品した商品をマイページで確認できます。
 
-* System dependencies
+## 実装内容の紹介
+- 商品情報編集機能
+- 商品詳細表示機能
+- 商品削除機能
+- 商品出品機能
+- ユーザー新規登録、ログイン機能
+- カテゴリー機能
+- 商品購入機能
+- 商品一覧表示機能
 
-* Configuration
+## サイトURL紹介
+- ユーザー名:admin
+- パスワード:password
+- IPアドレス:http://3.115.42.47/
 
-* Database creation
+# :page_facing_up: DB設計
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## ER図
 
 ## destinationテーブル
 |Column|Type|Options|
