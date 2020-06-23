@@ -65,23 +65,23 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|Options|
 |------|----|-------|-------|
-|seller|integer|null: false|foreign_key: true|
-|buyer|integer|foreign_key: true|
+|seller|integer|null: false|foreign_key: "seller_id"|
+|buyer|integer|foreign_key: buyer_id"|optional: true|
 |name|string|null: false|
 |description|string|null: false|
 |price|integer|null: false|
-|category_id|integer|null: false|foreign_key: true|
-|brand_id|integer|foreign_key: true|
+|category_id|integer|null: false|foreign_key: true|dependent: :destroy|
+|brand_id|integer|foreign_key: true|dependent: :destroy, optional: :true|
 |status|integer|null: false|
 |cost|integer|null: false
 |prefecture_id|integer|null: false|
 |days|integer|null: false|
 ### Association
-- belongs_to :seller, class_name: “user”, foreign_key: “seller_id”
-- belongs_to :buyer, class_name: “user”, foreign_key: “buyer_id”
-- belongs_to :category dependent: :destroy
-- belongs_to :brand dependent: :destroy
-- has_many :images dependent: :destroy
+- belongs_to :seller
+- belongs_to :buyer
+- belongs_to :category
+- belongs_to :brand
+- has_many :images
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :status
 - belongs_to_active_hash :cost
@@ -93,6 +93,7 @@ Things you may want to cover:
 |ancestry|string|
 ### Association
 - has_many :items
+- has_ancesrty
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -105,10 +106,9 @@ Things you may want to cover:
 |first_name_kana|string|null: false|
 |birth_day|date|null: false|
 ### Association
-- has_many :destination dependent: :destroy
-- has_many :card dependent: :destroy
-- has_many :items dependent: :destroy
-- has_many :selling_items, -> { where("seller_id is not NULL && buyer_id is NULL") }, class_name: "Item"
-- has_many :bought_items, class_name: "Item", foreign_key: "buyer_id"
-- has_many :sold_items, -> { where("buyer_id is not NULL") }, class_name: "Item"
-
+- has_many :destination
+- has_many :card
+- has_many :items
+- has_many :selling_items
+- has_many :bought_items
+- has_many :sold_items
