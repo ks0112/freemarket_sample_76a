@@ -40,6 +40,7 @@
 # :page_facing_up: DB設計
 
 ## ER図
+<img src="https://user-images.githubusercontent.com/64722228/85387137-69e04180-b57f-11ea-986a-96f4e759f496.png">
 
 ## destinationテーブル
 |Column|Type|Options|
