@@ -218,19 +218,19 @@
     padding: 0 0 0 16px;
     & a{
   width:100%;
-  // position: absolute;/*←相対位置*/
-  //   padding-bottom: 120px;/*←footerの高さ*/
-  //   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
-  &__contents {
-    max-width: 840px;
-    margin: 0 auto;
-    display: flex;
-    &__content {
-      display: flex;
-      align-items: center;
-      color: #333;
-      text-decoration: none;
-      line-height: 32px;
+  // // position: absolute;/*←相対位置*/
+  // //   padding-bottom: 120px;/*←footerの高さ*/
+  // //   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  // &__contents {
+  //   max-width: 840px;
+  //   margin: 0 auto;
+  //   display: flex;
+  //   &__content {
+  //     display: flex;
+  //     align-items: center;
+  //     color: #333;
+  //     text-decoration: none;
+  //     line-height: 32px;
     }
   }
 }

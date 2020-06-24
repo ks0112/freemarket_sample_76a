@@ -2,6 +2,7 @@ class DestinationsController < ApplicationController
   def index
   end
   def new
+    @parents = Category.where(ancestry: nil)
     destination = Destination.find_by(user_id: current_user.id)
     unless destination.blank?
       redirect_to edit_destination_path(destination.id)
@@ -19,6 +20,7 @@ class DestinationsController < ApplicationController
   end
 
   def edit
+    @parents = Category.where(ancestry: nil)    
     @destination = Destination.find_by(user_id: current_user.id)
     if @destination.blank?
       redirect_to new_destination_path
