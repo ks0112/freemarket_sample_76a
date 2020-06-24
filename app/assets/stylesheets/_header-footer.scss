@@ -206,7 +206,7 @@
   align-items: center;
   color: #333;
   text-decoration: none;
-  line-height: 32px; 
+  line-height: 32px;
 }
 
 .main-header__inner__nav__listright{
@@ -216,7 +216,7 @@
     color: #333;
     line-height: 38px;
     padding: 0 0 0 16px;
-    & a{
+    // & a{
   // width:100%;
   // // position: absolute;/*←相対位置*/
   // //   padding-bottom: 120px;/*←footerの高さ*/
@@ -231,7 +231,7 @@
   //     color: #333;
   //     text-decoration: none;
   //     line-height: 32px;
-    }
+    // }
   }
 }
 
