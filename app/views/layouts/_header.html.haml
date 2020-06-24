@@ -11,12 +11,27 @@
             .main-header__inner__main__searchbox__icon
               =link_to image_tag("icon-search 1.png", height: "17")
     .main-header__inner__nav
-      %ul.main-header__inner__nav__listleft
-        %li.main-header__inner__nav__listleft__item.listleft__item--first
-          = link_to "カテゴリー"
-        %li.main-header__inner__nav__listleft__item
+      %ul.category-wrap
+        %li.category
+          %p.category-list-title カテゴリー
+          %ul.parent-wrap
+            - @parents.each do |parent|
+              %li.parent
+                = link_to "#", class: "category__parent--name" do
+                  = parent.name    
+                %ul.child-wrap
+                  - parent.children.each do |child|
+                    %li.child
+                      = link_to "#", class: "category__child--name" do
+                        = child.name
+                      %ul.grandchild-wrap
+                        - child.children.each do |child|
+                          %li.grandchild
+                            = link_to "#", class: "category__grandchild--name" do
+                              = child.name
+        .main-header__inner__nav__listleft__item
           = link_to "ブランド"
-          %ul.brandsPulldown.displayNone
+        %ul.brandsPulldown.displayNone
       %ul.main-header__inner__nav__listright
         - if user_signed_in?
           %li.main-header__inner__nav__listright__item.listright__item--login
@@ -30,3 +45,25 @@
             = link_to "ログイン", new_user_session_path
           %li.main-header__inner__nav__listright__item.listright__item--new
             = link_to "新規会員登録", new_user_registration_path
+
+
+    -# .main-header__inner__nav
+    -#   %ul.main-header__inner__nav__listleft
+    -#     %li.main-header__inner__nav__listleft__item.listleft__item--first
+    -#       = link_to "カテゴリー"
+    -#     %li.main-header__inner__nav__listleft__item
+    -#       = link_to "ブランド"
+    -#       %ul.brandsPulldown.displayNone
+    -#   %ul.main-header__inner__nav__listright
+    -#     - if user_signed_in?
+    -#       %li.main-header__inner__nav__listright__item.listright__item--login
+    -#         = link_to "ログアウト", destroy_user_session_path, method: :delete
+    -#       %li.main-header__inner__nav__listright__item.listright__item--new
+    -#         = link_to "新規商品登録", new_item_path
+    -#       %li.main-header__inner__nav__listright__item.listright__item--mypage
+    -#         = link_to "マイページ", user_path(current_user)
+    -#     - else
+    -#       %li.main-header__inner__nav__listright__item.listright__item--login
+    -#         = link_to "ログイン", new_user_session_path
+    -#       %li.main-header__inner__nav__listright__item.listright__item--new
+    -#         = link_to "新規会員登録", new_user_registration_path

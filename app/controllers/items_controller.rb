@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   def index
+    @parents = Category.where(ancestry: nil)
     # 新着アイテム
     @item = Item.limit(3).order('created_at DESC')
     # レディースアイテム

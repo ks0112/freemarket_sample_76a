@@ -88,13 +88,12 @@ ActiveRecord::Schema.define(version: 2020_06_05_093842) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-
     t.string "nickname", null: false
     t.string "family_name", null: false
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "birth_day", null: false
+    t.date "birth_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
