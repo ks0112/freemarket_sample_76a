@@ -24,6 +24,12 @@ Rails.application.routes.draw do
   #   end
   # end
   resources :items do
+    collection do
+      get 'search'
+    end
+  end
+  
+  resources :items do
     resources :purchases, only: [:index] do
       collection do
         get 'done', to: 'purchases#done'
