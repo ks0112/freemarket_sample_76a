@@ -80,7 +80,7 @@ $(document).on('turbolinks:load', function(){
   });
 });
 
-$(document).ready(function(){
+$(document).hover(function(){
 
   $('.category').hover(function(){
     $(this).addClass('active');
