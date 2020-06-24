@@ -123,6 +123,41 @@ class ItemsController < ApplicationController
     redirect_to action: 'done' #完了画面に移動
   end
 
+  def set_category_list
+    @category_parent_array = Category.where(ancestry: nil)
+  end
+
+  def select_category_index
+    # カテゴリ名を取得するために@categoryにレコードをとってくる
+    @category = Category.find_by(id: params[:format])
+    # 親カテゴリーを選択していた場合の処理
+    if @category.ancestry == nil
+      # Categoryモデル内の親カテゴリーに紐づく孫カテゴリーのidを取得
+      category = Category.find_by(id: params[:format]).indirect_ids
+      # 孫カテゴリーに該当するitemsテーブルのレコードを入れるようの配列を用意
+      # @items = []
+      # # find_itemメソッドで処理
+      # find_item(category.id)
+      @items = Item.where(category_id: category)
+      # ancestry=category.ancestry
+      # @items=ancestry.items
+
+    # 孫カテゴリーを選択していた場合の処理
+    elsif @category.ancestry.include?("/")
+      # Categoryモデル内の親カテゴリーに紐づく孫カテゴリーのidを取得
+      @items = Item.where(category_id: params[:format])
+
+    # 子カテゴリーを選択していた場合の処理
+    else
+      category = Category.find_by(id: params[:format]).child_ids
+      # 孫カテゴリーに該当するitemsテーブルのレコードを入れるようの配列を用意
+      @items = Item.where(category_id: category)
+      # @items = []
+      # # find_itemメソッドで処理
+      # find_item(category)
+    end
+  end
+
 
   private
   def item_params
