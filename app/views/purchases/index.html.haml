@@ -64,7 +64,7 @@
       -#   = f.submit '購入する', class: 'purcbtn__submitbtn'
       = form_tag(action: :buy, method: :post) do
         = hidden_field_tag :item, params[@item.id]
-        %button 購入する
+        %button{class: 'purcbtn__submitbtn'} 購入する
 
     -# .payfooter
     -#   %h1.payfooter__footerimage
