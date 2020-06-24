@@ -183,6 +183,12 @@
   }
 }
 
+.fas.fa-search{
+  color: white;
+  height:17px;
+  font-size: 18px;
+}
+
 .main-header__inner__nav__listleft__item{
   text-align: center;
 }
@@ -216,7 +222,7 @@
     color: #333;
     line-height: 38px;
     padding: 0 0 0 16px;
-    & a{
+//     & a{
   // width:100%;
   // // position: absolute;/*←相対位置*/
   // //   padding-bottom: 120px;/*←footerの高さ*/
@@ -231,9 +237,11 @@
   //     color: #333;
   //     text-decoration: none;
   //     line-height: 32px;
-    }
+  //   }
   }
 }
+
+  
 
 //active,active2はjQueryで使います
 .active{
@@ -354,7 +362,7 @@
   width: 900px;
 }
 
-
+  
 // .main-header__inner__nav{
 //   font-size: 14px;
 //   display: flex;

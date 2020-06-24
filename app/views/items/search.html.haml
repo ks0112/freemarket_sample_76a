@@ -1,3 +1,5 @@
+= render 'layouts/header'
+
 - @items.each do |item|
   .product__body__lists__list
     .product__body__lists__list__list-img
@@ -18,3 +20,5 @@
             %i.fa.fa-star.likeIcon
             0
         %p.product__lists__list__detail-tax (税込)
+
+= render 'layouts/footer'

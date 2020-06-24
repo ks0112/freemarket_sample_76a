@@ -6,7 +6,7 @@
         =link_to image_tag("logo.png", width: "140"), root_path
       .main-header__inner__main__searchbox
         = form_with(url: search_items_path, local: true, method: :get, class: "form") do |form|
-          = form.text_field :keyword, placeholder: "投稿を検索する", class: "searchInput.searchbox--input"
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchInput.searchbox--input"
           = button_tag type: 'submit', class: 'main-header__inner__main__searchbox__icon' do
             %i.fas.fa-search
     .main-header__inner__nav
