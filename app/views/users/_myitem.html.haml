@@ -1,0 +1,13 @@
+-# 新着アイテムページ
+- @items.each do |item|
+  .postTitle
+    .postImage
+      = image_tag item.images[0].image.url, class: "postImage__itemimage" 
+    .post_date
+      = item.created_at.strftime('%Y/%m/%d')
+      出品
+      .Post__postText
+      -if item.buyer_id.nil?
+        = link_to item.name, item_path(item.id),class: "postText__nametext"
+      - else
+        .buyercomp 売却されました

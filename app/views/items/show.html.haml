@@ -1,3 +1,5 @@
+.header
+  = link_to image_tag("logo.png", class:"header__logo"), "/"
 .main
   .showmain
     .contentLeft
@@ -5,68 +7,75 @@
       .topcontent
         .itemBox
           %h2.itemBox__name
-            sampletext
+            = @item.name
           .itemBox__body
             %ul.itemBox__body__image
-              %li.itemBox__body__image__mainimage
-                = image_tag src="apple.png", size: "560x346"
-                %ul.itemBox__body__image__mainimage__subimage
-                  %li.itemBox__body__image__mainimage__subimage__subimagebody
-                    = image_tag src="banana.jpg", size: "130x100"
-                  %li.itemBox__body__image__mainimage__subimage__subimagebody
-                    = image_tag src="banana.jpg", size: "130x100"
-                  %li.itemBox__body__image__mainimage__subimage__subimagebody
-                    = image_tag src="banana.jpg", size: "130x100"
+              - @item.images.first(1).each do |image|
+                %li.itemBox__body__image__mainimage
+                  = image_tag image.image_url, size: "560x346"
+            %ul.itemBox__body__image__mainimage__subimage
+              - @item.images.each do |image|
+                %li.itemBox__body__image__mainimage__subimage__subimagebody
+                  = image_tag image.image_url, size: "130x100"
           .itemBox__price
             %span.itemBox__price__pricemain
-              ¥20000
+              ¥
+              = @item.price
             .itemBox__price__price-detail
-              %span.itemBox__price-detail__placetag1
+              %span
                 （税込み）
-              %span.itemBox__price-detail__placetag2
+              %span
                 送料込み
           .itemBox__itemDteil
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を打っていしまい
-
+            = @item.description
           .itemBox__table
             %table.itemBox__table--main-table
               %tbody
                 %tr
-                  %th.itemBox__table--main-table--tabletitle 出品者 
-                  %td.itemBox__table--main-table--tableinfo hoge
+                  %th.itemBox__table--main-table--tabletitle 出品者
+                  %td.itemBox__table--main-table--tableinfo
+                    = @item.seller.nickname
                 %tr
                   %th.itemBox__table--main-table--tabletitle カテゴリー
                   %td.itemBox__table--main-table--tableinfo
                     = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      メンズ 
+                      = @parent.name
                     %br
                     = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      ジャケット/アウター
+                      = @child.name
                     %br
                     = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      ノーカラージャケット
+                      = @grandchild.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle ブランド
-                  %td.itemBox__table--main-table--tableinfo coach
-                %tr
-                  %th.itemBox__table--main-table--tabletitle 商品のサイズ
-                  %td.itemBox__table--main-table--tableinfo L
+                  %td.itemBox__table--main-table--tableinfo
+                    = @item.brand.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 商品の状態
-                  %td.itemBox__table--main-table--tableinfo 新品/未使用
+                  %td.itemBox__table--main-table--tableinfo
+                    = @item.status.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 配送料の負担
-                  %td.itemBox__table--main-table--tableinfo 着払い（購入者負担）
+                  %td.itemBox__table--main-table--tableinfo
+                    = @item.cost.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 発送元の地域
                   %td.itemBox__table--main-table--tableinfo
-                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      青森県
+                    = @item.prefecture.name
                 %tr
                   %th.itemBox__table--main-table--tabletitle 発送の目安
-                  %td.itemBox__table--main-table--tableinfo 1-2日で発送
-
-      %ul.links 
+                  %td.itemBox__table--main-table--tableinfo
+                    =@item.days.name
+          - if user_signed_in?
+            - if user_signed_in? && current_user.id == @item.seller_id
+              = link_to "この商品を編集する", edit_item_path(@item), class: "itemBox__edit-btn"
+              = link_to "この商品を削除する", item_path(@item.id), method: :delete, data: {confirm: "削除すると二度と復活できません、本当に削除しますか？"}, class: "itemBox__delete-btn"
+            - elsif @item.buyer_id == nil
+              = link_to "購入画面に進む", item_purchases_path(@item.id), class: "itemBox__next-btn" 
+            - else
+              %p.itemBox__next-btn
+                SOLD OUT     
+      %ul.links
         %li.links__left
           商品
           = link_to item_path, class: "links__left--leftpath" do
@@ -77,9 +86,6 @@
           = link_to item_path, class: "links__right--rightpath" do
             =icon('fa', 'angle-right')
             %span 後の商品
-      
       .relatedItems
-        = link_to item_path, class: "relatedItems__Itemsinfo" do
-          メンズをもっと見る
-
-   
+        = link_to "/" , class: "relatedItems__Itemsinfo" do
+          トップページに戻る

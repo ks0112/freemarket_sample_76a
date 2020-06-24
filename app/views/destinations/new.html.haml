@@ -3,80 +3,69 @@
   .mypage-main__left
     = render "users/options"
   .mypage-main__right
-    .mypage-main__right__title 
-      %h1 住所変更
-    .container
-      -# .header
-      -#   = link_to image_tag("logo.png", class:"header__logo"), "/"
-      .main
-        %h1.registration 会員情報入力
-        .register-form
-          = form_with(model: @destination, local: true) do |form|
-            .field
-              .field__label
-                = form.label :お名前
-                (全角)
-                %span.form-require 必須
-              .field__input
-                .field__input__half
-                  = form.text_field :family_name
-                .field__input__half
-                  = form.text_field :first_name
-            .field
-              .field__label
-                = form.label :お名前カナ
-                (全角)
-                %span.form-require 必須
-              .field__input
-                .field__input__half
-                  = form.text_field :family_name_kana
-                .field__input__half
-                  = form.text_field :first_name_kana
-            .field
-              .field__label
-                = form.label :郵便番号
-                (ハイフン無し)
-                %span.form-require 必須
-              .field__input
-                = form.text_field :post_code
-            .field
-              .field__label
-                = form.label :都道府県
-                %span.form-require 必須
-              .field__input
-                -# = form.text_field :prefecture
-                = form.collection_select :prefecture_id, Prefecture.all, :id, :name
-            .field
-              .field__label
-                = form.label :市町村
-                %span.form-require 必須
-              .field__input
-                = form.text_field :city
-            .field
-              .field__label
-                = form.label :その他住所
-                %span.form-require 必須
-              .field__input
-                = form.text_field :address
-            .field
-              .field__label
-                = form.label :建物
-                %span.form-require 任意
-              .field__input
-                = form.text_field :building_name
-            .field
-              .field__label
-                = form.label :電話番号
-                %span.form-require 任意
-              .field__input
-                = form.text_field :phone_number
-
+    .mypage-main__right__title
+      %h1 住所登録
+    .mypage-main__right__main__destination
+      .mypage-main__right__main__destination__form
+        = form_with(model: @destination, local: true) do |form|
+          .destination__field
+            .destination__field__label
+              = form.label :"お名前(全角)"
+              %span.destination-require 必須
+            .destination__field__input
+              .destination__field__input__half
+                = form.text_field :family_name, class: "destination-form"
+              .destination__field__input__half
+                = form.text_field :first_name, class: "destination-form"
+          .destination__field
+            .destination__field__label
+              = form.label :"お名前カナ(全角)"
+              %span.destination-require 必須
+            .destination__field__input
+              .field__input__half
+                = form.text_field :family_name_kana, class: "destination-form"
+              .field__input__half
+                = form.text_field :first_name_kana, class: "destination-form"
+          .destination__field
+            .destination__field__label
+              = form.label :"郵便番号(ハイフン無し)"
+              %span.destination-require 必須
+            .destination__field__input
+              = form.text_field :post_code, class: "destination-form"
+          .destination__field
+            .destination__field__label
+              = form.label :都道府県
+              %span.destination-require 必須
+            .destination__field__input
+              = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+          .destination__field
+            .destination__field__label
+              = form.label :市町村
+              %span.destination-require 必須
+            .destination__field__input
+              = form.text_field :city, class: "destination-form"
+          .destination__field
+            .destination__field__label
+              = form.label :その他住所
+              %span.destination-require 必須
+            .destination__field__input
+              = form.text_field :address, class: "destination-form"
+          .destination__field
+            .destination__field__label
+              = form.label :建物
+              %span.destination-notrequire 任意
+            .destination__field__input
+              = form.text_field :building_name, class: "destination-form"
+          .destination__field
+            .destination__field__label
+              = form.label :"電話番号(ハイフン無し)"
+              %span.destination-notrequire 任意
+            .destination__field__input
+              = form.text_field :phone_number, class: "destination-form"
             .actions
-              = form.submit "住所更新", class: 'btn'
-
-  -# .footer
-  -#   = link_to image_tag("logo-white.png",class:"footer__logo"), "/"
+              = form.submit "住所登録", class: 'destination-btn'
 = render "layouts/footer"
+
 
 
 
@@ -115,7 +104,6 @@
 -#             = link_to root_path, class: 'payment__payinn__paymentbox__paymentlink__paylinkicon' do
 -#               = icon('fa', 'plus-circle')
 -#               %span クレジットカード登録してください
-              
 -#     .address
 -#       .address__addressinn
 -#         .address__addressinn__addressbox
@@ -124,7 +112,6 @@
 -#             = link_to root_path, class: "address__addressinn__addressbox__addresslink__addlinkicon" do
 -#               = icon('fa', 'plus-circle')
 -#               配送先を登録してください
-    
 -#     .purcbtn
 -#       = form_with url: root_path, method: :get do |f|
 -#         = f.submit '購入する', class: 'purcbtn__submitbtn'

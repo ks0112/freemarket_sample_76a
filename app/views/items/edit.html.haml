@@ -1,3 +1,138 @@
--# %h1 Items#index
--# %p Find me in app/views/items/index.html.erb
+.sell-container
 
+  .header
+    = link_to image_tag("logo.png", class:"header__logo"), "/"
+
+  .inner
+    .exhibition-form
+      = form_with(model: @item, local: true) do |f|
+        .sell
+          = f.label :出品画像, class: "sell__label"
+          %span.sell__require 必須
+          .sell__comment 最大4枚までアップロードできます
+          .sell__imgbox
+            .prev-content
+              - @item.images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, alt: "preview"
+                  .lower-box
+                    .update-box
+                      -# %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
+
+            .label-content
+              //プレビューの数に合わせてforオプションを指定
+              = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |i|
+
+                //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                = i.file_field :image, class: "hidden-field"
+                = i.check_box :_destroy, class: "hidden-checkbox"
+
+                //5つのfile_fieldを準備するに当たって、足りない分を表示
+              - @item.images.length.upto(3) do |i|
+                %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+        .sell__block__form__name
+        .goods
+          .form-group
+            .form-group__field
+              .form-group__field__label
+                = f.label :商品名
+                %span.form-require 必須
+              .form-group__field__input
+                = f.text_field :name, autocomplete: "off", placeholder: "40文字まで", class: "text-field"
+            .form-group__field
+              .form-group__field__label
+                = f.label :商品の説明
+                %span.form-require 必須
+              .form-group__field__input
+                = f.text_area :description, rows: "6", class: "text-area"
+          %hr.border/
+
+          .details
+            .form-group
+              %p 商品の詳細
+              .form-group__field
+                .form-group__field__label
+                  = f.label :カテゴリー
+                  %span.form-require 必須
+                .form-group__field__input
+                  = f.collection_select :parent_name, @category_parent_array, :id, :name, {selected: @item.category.parent.parent.id }, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+                  = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+                  = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+                  .item_input__body__category__children#children_box
+                  .item_input__body__category__grandchildren#grandchildren_box
+                .form-group__field
+                  = f.fields_for :brand do |brand|
+                    .form-group__field__label
+                      = brand.label :ブランド
+                      %span.form-optional 任意
+                    .form-group__field__input
+                      = brand.text_field :name, placeholder: "例）シャネル", autocomplete: "off", class: "text-field"
+                .form-group__field
+                  .form-group__field__label
+                    = f.label :商品の状態
+                    %span.form-require 必須
+                  .form-group__field__input
+                    .form-group__field__input__select
+                      = f.collection_select :status_id, Status.all, :id, :name, {prompt: "選択してください"}
+                      %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          %hr.border/
+
+        .delivery
+          .form-group
+            %p 配送について
+            .form-group__field
+              .form-group__field__label
+                = f.label :配送料の負担
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.collection_select :cost_id, Cost.all, :id, :name, {prompt: "選択してください"}
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .form-group__field
+              .form-group__field__label
+                = f.label :発送元の地域
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .form-group__field
+              .form-group__field__label
+                = f.label :発送までの日数
+                %span.form-require 必須
+              .form-group__field__input
+                .form-group__field__input__select
+                  = f.collection_select :days_id, Days.all, :id, :name, {prompt: "選択してください"}
+                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          %hr.border/
+
+        .price
+          .form-group
+            %p価格 (¥300〜9,999,999)
+            .form-group__field
+              .form-group__field__content
+                .form-group__field__label
+                  = f.label :販売価格
+                  %span.form-require 必須
+                %span.yen ¥
+                .price__form-group__field__input
+                  = f.number_field :price, autocomplete: "off", placeholder: "0", class: "number-field"
+          %hr.border/
+
+        .actions
+          = f.submit "更新する", class: 'exhibition', tabindex: "0"
+          -# = f.submit "下書きに保存", class: 'save', tabindex: "0"
+
+  .footer
+    = link_to image_tag("logo-white.png",class:"footer__logo"), "/"

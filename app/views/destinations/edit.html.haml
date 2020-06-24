@@ -3,7 +3,7 @@
   .mypage-main__left
     = render "users/options"
   .mypage-main__right
-    .mypage-main__right__title 
+    .mypage-main__right__title
       %h1 住所更新
     .mypage-main__right__main__destination
       .mypage-main__right__main__destination__form
@@ -37,7 +37,6 @@
               = form.label :都道府県
               %span.destination-require 必須
             .destination__field__input
-              -# = form.text_field :prefecture
               = form.collection_select :prefecture_id, Prefecture.all, :id, :name
           .destination__field
             .destination__field__label
@@ -59,7 +58,7 @@
               = form.text_field :building_name, class: "destination-form"
           .destination__field
             .destination__field__label
-              = form.label :電話番号
+              = form.label :"電話番号(ハイフン無し)"
               %span.destination-notrequire 任意
             .destination__field__input
               = form.text_field :phone_number, class: "destination-form"

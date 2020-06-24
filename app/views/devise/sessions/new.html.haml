@@ -4,17 +4,37 @@
 
   .main
     .register-form
-      = form_with url: '#' do |f|
+      = form_with(model: @user, url: user_session_path,local: true) do |f|
         .field
           .field__label
             = f.label :メールアドレス
           .field__input
             = f.email_field :email, autofocus: true
+            - if @user.errors.any?
+              .error_explanation
+                %h2
+                  - I18n.t("errors.messages.not_saved",                 |
+                    count: resource.errors.count,                       |
+                    resource: resource.class.model_name.human.downcase) |
+                %ul
+                  - @user.errors.full_messages_for(:email).each do |message|
+                    %li{style: "color:red"}
+                      = message
           .field
             .field__label
               = f.label :パスワード
             .field__input
               = f.password_field :password, autocomplete: "off"
+              - if @user.errors.any?
+                .error_explanation
+                  %h2
+                    - I18n.t("errors.messages.not_saved",                 |
+                      count: resource.errors.count,                       |
+                      resource: resource.class.model_name.human.downcase) |
+                  %ul
+                    - @user.errors.full_messages_for(:password).each do |message|
+                      %li{style: "color:red"}
+                        = message
           .actions
             = f.submit "ログイン", class: 'btn'
 

@@ -1,0 +1,86 @@
+.main
+  .showmain
+    .contentLeft
+    .contentRight
+      .topcontent
+        .itemBox
+          %h2.itemBox__name
+            sampletext
+            = link_to "購入する", @item.name
+          .itemBox__body
+            %ul.itemBox__body__image
+              %li.itemBox__body__image__mainimage
+                = image_tag src="apple.png", size: "560x346"
+                %ul.itemBox__body__image__mainimage__subimage
+                  %li.itemBox__body__image__mainimage__subimage__subimagebody
+                    = image_tag src="banana.jpg", size: "130x100"
+                  %li.itemBox__body__image__mainimage__subimage__subimagebody
+                    = image_tag src="banana.jpg", size: "130x100"
+                  %li.itemBox__body__image__mainimage__subimage__subimagebody
+                    = image_tag src="banana.jpg", size: "130x100"
+          .itemBox__price
+            %span.itemBox__price__pricemain
+              ¥20000
+            .itemBox__price__price-detail
+              %span.itemBox__price-detail__placetag1
+                （税込み）
+              %span.itemBox__price-detail__placetag2
+                送料込み
+          .itemBox__itemDteil
+            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を打っていしまい
+
+          .itemBox__table
+            %table.itemBox__table--main-table
+              %tbody
+                %tr
+                  %th.itemBox__table--main-table--tabletitle 出品者 
+                  %td.itemBox__table--main-table--tableinfo hoge
+                %tr
+                  %th.itemBox__table--main-table--tabletitle カテゴリー
+                  %td.itemBox__table--main-table--tableinfo
+                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
+                      メンズ 
+                    %br
+                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
+                      ジャケット/アウター
+                    %br
+                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
+                      ノーカラージャケット
+                %tr
+                  %th.itemBox__table--main-table--tabletitle ブランド
+                  %td.itemBox__table--main-table--tableinfo coach
+                %tr
+                  %th.itemBox__table--main-table--tabletitle 商品のサイズ
+                  %td.itemBox__table--main-table--tableinfo L
+                %tr
+                  %th.itemBox__table--main-table--tabletitle 商品の状態
+                  %td.itemBox__table--main-table--tableinfo 新品/未使用
+                %tr
+                  %th.itemBox__table--main-table--tabletitle 配送料の負担
+                  %td.itemBox__table--main-table--tableinfo 着払い（購入者負担）
+                %tr
+                  %th.itemBox__table--main-table--tabletitle 発送元の地域
+                  %td.itemBox__table--main-table--tableinfo
+                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
+                      青森県
+                %tr
+                  %th.itemBox__table--main-table--tabletitle 発送の目安
+                  %td.itemBox__table--main-table--tableinfo 1-2日で発送
+
+      %ul.links 
+        %li.links__left
+          商品
+          = link_to item_path, class: "links__left--leftpath" do
+            = icon('fa', 'angle-left')
+            %span
+            前の商品
+        %li.links__right
+          = link_to item_path, class: "links__right--rightpath" do
+            =icon('fa', 'angle-right')
+            %span 後の商品
+      
+      .relatedItems
+        = link_to item_path, class: "relatedItems__Itemsinfo" do
+          メンズをもっと見る
+
+   

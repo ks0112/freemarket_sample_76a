@@ -1,0 +1,21 @@
+-# レディース新着アイテムページ
+- @womencategory.each do |item|
+  .product__body__lists__list
+    .product__body__lists__list__list-img
+    - item.images.each_with_index do |image, index|
+      - if index == 0
+        = link_to image_tag("#{image.image.url}", width: '220', height: '200'), item_path(item.id), class: "product__body__lists__list__list-img__image" 
+      - unless item.buyer_id.blank?
+        .sold-tag
+          .sold-tag__title sold out
+    .product__body__lists__list__detail
+      %h3.product__lists__list__detail-name 
+        = item.name
+        %ul.product__lists__list__detail-price
+          %li.product__lists__list__detail-price__itemprice
+            =item.price 
+            円
+          %li.product__lists__list__detail-price__itemstar
+            %i.fa.fa-star.likeIcon
+            0
+        %p.product__lists__list__detail-tax (税込)
