@@ -9,5 +9,6 @@ FactoryBot.define do
     prefecture_id               {"15"}
     days_id                     {"2"}
     seller_id                   {"1"}
+    asocciation :user
   end
 end
