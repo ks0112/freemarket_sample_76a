@@ -133,7 +133,7 @@ class ItemsController < ApplicationController
   end
 
   def select_category_index
-    @parents = Category.where(ancestry: nil)    
+    @parents = Category.where(ancestry: nil)
     # カテゴリ名を取得するために@categoryにレコードをとってくる
     @category = Category.find_by(id: params[:format])
     # 親カテゴリーを選択していた場合の処理
@@ -157,7 +157,7 @@ class ItemsController < ApplicationController
       @items = Item.where(category_id: params[:format])
       if @items.blank?
         redirect_to root_path
-      end      
+      end
 
     # 子カテゴリーを選択していた場合の処理
     else
@@ -169,7 +169,7 @@ class ItemsController < ApplicationController
       # find_item(category)
       if @items.blank?
         redirect_to root_path
-      end      
+      end
     end
   end
 

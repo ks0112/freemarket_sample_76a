@@ -23,12 +23,7 @@ Rails.application.routes.draw do
   #     get 'done', to: 'items#done'
   #   end
   # end
-  resources :items do
-    collection do
-      get 'search'
-    end
-  end
-  
+
   resources :items do
     resources :purchases, only: [:index] do
       collection do
@@ -39,17 +34,12 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get "select_category_index"            
+      get "select_category_index"
+      get 'search'
     end
     member do
       get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }      
-    end
-    resources :purchases, only: [:index] do
-      collection do
-        get 'done', to: 'purchases#done'
-        post 'buy', to: 'purchases#buy'
-      end
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   # resources :categories, only: [:index] do
