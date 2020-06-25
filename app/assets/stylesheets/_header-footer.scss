@@ -183,6 +183,12 @@
   }
 }
 
+.fas.fa-search{
+  color: white;
+  height:17px;
+  font-size: 18px;
+}
+
 .main-header__inner__nav__listleft__item{
   text-align: center;
 }
@@ -234,6 +240,8 @@
     // }
   }
 }
+
+  
 
 //active,active2はjQueryで使います
 .active{
@@ -354,7 +362,7 @@
   width: 900px;
 }
 
-
+  
 // .main-header__inner__nav{
 //   font-size: 14px;
 //   display: flex;

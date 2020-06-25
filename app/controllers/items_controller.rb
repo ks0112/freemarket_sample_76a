@@ -97,6 +97,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @parents = Category.where(ancestry: nil)
+    @items = Item.search(params[:keyword])
+  end
+
   def p_exhibiting #出品中のアクション
   end
 

@@ -5,11 +5,10 @@
       %h1.main-header__inner__main__icon
         =link_to image_tag("logo.png", width: "140"), root_path
       .main-header__inner__main__searchbox
-        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-          %input#searchInput.searchbox--input{:name => "key", :placeholder => "キーワードから探す"}
-          %button{:type => "submit"}
-            .main-header__inner__main__searchbox__icon
-              =link_to image_tag("icon-search 1.png", height: "17")
+        = form_with(url: search_items_path, local: true, method: :get, class: "form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchInput.searchbox--input"
+          = button_tag type: 'submit', class: 'main-header__inner__main__searchbox__icon' do
+            %i.fas.fa-search
     .main-header__inner__nav
       %ul.category-wrap
         %li.category
