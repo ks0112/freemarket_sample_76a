@@ -1,6 +1,9 @@
 = render 'layouts/header'
 .search
   .searchfield
+    「
+    = @category.name
+    」の検索結果一覧  
   - @items.each do |item|
     .searchitem
       .searchitem__body

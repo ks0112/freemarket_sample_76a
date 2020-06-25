@@ -6,9 +6,15 @@
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
+  .searchfield{
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    font: bold;
+  }  
   .searchitem{
     margin-left: 70px;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 220px;
     background-color: #fff;
   }
