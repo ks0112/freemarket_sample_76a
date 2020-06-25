@@ -39,10 +39,11 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get "select_category_index"            
     end
     member do
       get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }      
     end
     resources :purchases, only: [:index] do
       collection do
