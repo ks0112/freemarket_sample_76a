@@ -17,18 +17,15 @@
           %ul.parent-wrap
             - @parents.each do |parent|
               %li.parent
-                = link_to "#", class: "category__parent--name" do
-                  = parent.name    
+                = link_to "#{parent.name}", select_category_index_items_path(parent.id), class: "category__parent--name",id: "#{parent.id}"
                 %ul.child-wrap
                   - parent.children.each do |child|
                     %li.child
-                      = link_to "#", class: "category__child--name" do
-                        = child.name
+                      = link_to "#{child.name}", select_category_index_items_path(child.id), class: "category__child--name",id: "#{child.id}"
                       %ul.grandchild-wrap
-                        - child.children.each do |child|
+                        - child.children.each do |grandchild|
                           %li.grandchild
-                            = link_to "#", class: "category__grandchild--name" do
-                              = child.name
+                            = link_to "#{grandchild.name}", select_category_index_items_path(grandchild.id), class: "category__grandchild--name",id: "#{grandchild.id}"
         .main-header__inner__nav__listleft__item
           = link_to "ブランド"
         %ul.brandsPulldown.displayNone
