@@ -75,58 +75,71 @@
 
   .product
     %h1.product__head ピックアップカテゴリー
-    .product__body
-      %h2.product__body__body-title レディース新着アイテム
-      .product__body__lists
-        = render partial: "women", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title メンズ新着アイテム
-      .product__body__lists
-        = render partial: "men", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title ベビー・キッズ新着アイテム
-      .product__body__lists
-        = render partial: "baby", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title インテリア・住まい・小物新着アイテム
-      .product__body__lists
-        = render partial: "interia", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title 本・音楽・ゲームアイテム新着アイテム
-      .product__body__lists
-        = render partial: "entertainment", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title おもちゃ・ホビー・グッズ新着アイテム
-      .product__body__lists
-        = render partial: "hobby", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title コスメ・香水・美容新着アイテム
-      .product__body__lists
-        = render partial: "beauty", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title 家電・スマホ・カメラ新着アイテム
-      .product__body__lists
-        = render partial: "phone", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title スポーツ・レジャー新着アイテム
-      .product__body__lists
-        = render partial: "sports", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title ハンドメイド新着アイテム
-      .product__body__lists
-        = render partial: "handmaid", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title チケット新着アイテム
-      .product__body__lists
-        = render partial: "tickt", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title 自動車・オートバイ新着アイテム
-      .product__body__lists
-        = render partial: "car", locals: {images: @items}
-    .product__body
-      %h2.product__body__body-title その他新着アイテム
-      .product__body__lists
-        = render partial: "other", locals: {images: @items}
+    - if @womencategory.exists?
+      .product__body
+        %h2.product__body__body-title レディース新着アイテム
+        .product__body__lists
+          = render partial: "women", locals: {images: @items}
+    - if @mencategory.exists?          
+      .product__body
+        %h2.product__body__body-title メンズ新着アイテム
+        .product__body__lists
+          = render partial: "men", locals: {images: @items}
+    - if @baby.exists?              
+      .product__body
+        %h2.product__body__body-title ベビー・キッズ新着アイテム
+        .product__body__lists
+          = render partial: "baby", locals: {images: @items}
+    - if @interia.exists?          
+      .product__body
+        %h2.product__body__body-title インテリア・住まい・小物新着アイテム
+        .product__body__lists
+          = render partial: "interia", locals: {images: @items}
+    - if @entertainment.exists?
+      .product__body
+        %h2.product__body__body-title 本・音楽・ゲームアイテム新着アイテム
+        .product__body__lists
+          = render partial: "entertainment", locals: {images: @items}
+    - if @hobby.exists?
+      .product__body
+        %h2.product__body__body-title おもちゃ・ホビー・グッズ新着アイテム
+        .product__body__lists
+          = render partial: "hobby", locals: {images: @items}
+    - if @beauty.exists?
+      .product__body
+        %h2.product__body__body-title コスメ・香水・美容新着アイテム
+        .product__body__lists
+          = render partial: "beauty", locals: {images: @items}
+    - if @phone.exists?          
+      .product__body
+        %h2.product__body__body-title 家電・スマホ・カメラ新着アイテム
+        .product__body__lists
+          = render partial: "phone", locals: {images: @items}
+    - if @sports.exists?
+      .product__body
+        %h2.product__body__body-title スポーツ・レジャー新着アイテム
+        .product__body__lists
+          = render partial: "sports", locals: {images: @items}
+    - if @handmaid.exists?          
+      .product__body
+        %h2.product__body__body-title ハンドメイド新着アイテム
+        .product__body__lists
+          = render partial: "handmaid", locals: {images: @items}
+    - if @tickt.exists?              
+      .product__body
+        %h2.product__body__body-title チケット新着アイテム
+        .product__body__lists
+          = render partial: "tickt", locals: {images: @items}
+    - if @car.exists?                
+      .product__body
+        %h2.product__body__body-title 自動車・オートバイ新着アイテム
+        .product__body__lists
+          = render partial: "car", locals: {images: @items}
+    - if @other.exists?               
+      .product__body
+        %h2.product__body__body-title その他新着アイテム
+        .product__body__lists
+          = render partial: "other", locals: {images: @items}
   .banner
     .banner__img
       .banner-content
