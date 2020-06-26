@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :select_category_index]
+  before_action :authenticate_user!, except: [:index, :show, :select_category_index, :search, :all]
   before_action :set_current_user_items,only:[:p_exhibiting,:p_soldout]
   before_action :set_user,only:[:p_exhibiting,:p_soldout]
   before_action :set_item, only:[:edit, :show, :destroy, :update, :purchase, :payment, :buy]
