@@ -38,14 +38,12 @@
                 %tr
                   %th.itemBox__table--main-table--tabletitle カテゴリー
                   %td.itemBox__table--main-table--tableinfo
-                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      = @parent.name
+                    -# = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
+                    = link_to "#{@parent.name}", select_category_index_items_path(@parent.id), class: "itemBox__table--main-table--tableinfo--tableinfotag",id: "#{@parent.id}"                      
                     %br
-                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      = @child.name
+                    = link_to "#{@child.name}", select_category_index_items_path(@child.id), class: "itemBox__table--main-table--tableinfo--tableinfotag",id: "#{@child.id}"                    
                     %br
-                    = link_to item_path, class: "itemBox__table--main-table--tableinfo--tableinfotag" do
-                      = @grandchild.name
+                    = link_to "#{@grandchild.name}", select_category_index_items_path(@grandchild.id), class: "itemBox__table--main-table--tableinfo--tableinfotag",id: "#{@grandchild.id}"
                 %tr
                   %th.itemBox__table--main-table--tabletitle ブランド
                   %td.itemBox__table--main-table--tableinfo
