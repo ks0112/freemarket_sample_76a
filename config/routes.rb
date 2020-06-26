@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get "select_category_index"
       get 'search'
+      get 'all'
     end
     member do
       get 'get_category_children', defaults: { format: 'json' }

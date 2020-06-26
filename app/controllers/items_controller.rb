@@ -96,6 +96,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def all
+    @parents = Category.where(ancestry: nil)    
+    @items = Item.order("created_at DESC")
+  end
+
   def search
     @parents = Category.where(ancestry: nil)
     @items = Item.search(params[:keyword])

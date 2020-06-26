@@ -69,7 +69,8 @@
   .product
     %h1.product__head ピックアップアイテム
     .product__body
-      %h2.product__body__body-title 新着アイテム
+      %h2.product__body__body-title
+        = link_to "新着アイテム", all_items_path
       .product__body__lists
         = render partial: "item", locals: {images: @items}
 
