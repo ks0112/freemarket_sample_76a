@@ -137,3 +137,4 @@
 - has_many :selling_items
 - has_many :bought_items
 - has_many :sold_items
+- a
