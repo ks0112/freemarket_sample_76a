@@ -77,67 +77,80 @@
     %h1.product__head ピックアップカテゴリー
     - if @womencategory.exists?
       .product__body
-        %h2.product__body__body-title レディース新着アイテム
+        %h2.product__body__body-title
+          = link_to "レディース新着アイテム", select_category_index_items_path(1), id: "1"        
         .product__body__lists
           = render partial: "women", locals: {images: @items}
     - if @mencategory.exists?          
       .product__body
-        %h2.product__body__body-title メンズ新着アイテム
+        %h2.product__body__body-title
+          = link_to "メンズ新着アイテム", select_category_index_items_path(200), id: "200"        
         .product__body__lists
           = render partial: "men", locals: {images: @items}
     - if @baby.exists?              
       .product__body
-        %h2.product__body__body-title ベビー・キッズ新着アイテム
+        %h2.product__body__body-title 
+          = link_to "ベビー・キッズ新着アイテム", select_category_index_items_path(346), id: "346"
         .product__body__lists
           = render partial: "baby", locals: {images: @items}
     - if @interia.exists?          
       .product__body
-        %h2.product__body__body-title インテリア・住まい・小物新着アイテム
+        %h2.product__body__body-title
+          = link_to "インテリア・住まい・小物新着アイテム", select_category_index_items_path(481), id: "481"        
         .product__body__lists
           = render partial: "interia", locals: {images: @items}
     - if @entertainment.exists?
       .product__body
-        %h2.product__body__body-title 本・音楽・ゲームアイテム新着アイテム
+        %h2.product__body__body-title
+          = link_to "本・音楽・ゲームアイテム新着アイテム", select_category_index_items_path(625), id: "625"        
         .product__body__lists
           = render partial: "entertainment", locals: {images: @items}
     - if @hobby.exists?
       .product__body
-        %h2.product__body__body-title おもちゃ・ホビー・グッズ新着アイテム
+        %h2.product__body__body-title
+          = link_to "おもちゃ・ホビー・グッズ新着アイテム", select_category_index_items_path(685), id: "685"        
         .product__body__lists
           = render partial: "hobby", locals: {images: @items}
     - if @beauty.exists?
       .product__body
-        %h2.product__body__body-title コスメ・香水・美容新着アイテム
+        %h2.product__body__body-title
+          = link_to "コスメ・香水・美容新着アイテム", select_category_index_items_path(798), id: "798"
         .product__body__lists
           = render partial: "beauty", locals: {images: @items}
     - if @phone.exists?          
       .product__body
-        %h2.product__body__body-title 家電・スマホ・カメラ新着アイテム
+        %h2.product__body__body-title
+          = link_to "家電・スマホ・カメラ新着アイテム", select_category_index_items_path(898), id: "898"        
         .product__body__lists
           = render partial: "phone", locals: {images: @items}
     - if @sports.exists?
       .product__body
-        %h2.product__body__body-title スポーツ・レジャー新着アイテム
+        %h2.product__body__body-title
+          = link_to "スポーツ・レジャー新着アイテム", select_category_index_items_path(984), id: "984"  
         .product__body__lists
           = render partial: "sports", locals: {images: @items}
     - if @handmaid.exists?          
       .product__body
-        %h2.product__body__body-title ハンドメイド新着アイテム
+        %h2.product__body__body-title
+          = link_to "ハンドメイド新着アイテム", select_category_index_items_path(1093), id: "1093"     
         .product__body__lists
           = render partial: "handmaid", locals: {images: @items}
     - if @tickt.exists?              
       .product__body
-        %h2.product__body__body-title チケット新着アイテム
+        %h2.product__body__body-title
+          = link_to " チケット新着アイテム", select_category_index_items_path(1147), id: "1147"      
         .product__body__lists
           = render partial: "tickt", locals: {images: @items}
     - if @car.exists?                
       .product__body
-        %h2.product__body__body-title 自動車・オートバイ新着アイテム
+        %h2.product__body__body-title
+          = link_to "自動車・オートバイ新着アイテム", select_category_index_items_path(1207), id: "1207"        
         .product__body__lists
           = render partial: "car", locals: {images: @items}
     - if @other.exists?               
       .product__body
-        %h2.product__body__body-title その他新着アイテム
+        %h2.product__body__body-title
+          = link_to "その他新着アイテム", select_category_index_items_path(1270), id: "1270"
         .product__body__lists
           = render partial: "other", locals: {images: @items}
   .banner
