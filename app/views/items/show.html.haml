@@ -73,17 +73,6 @@
             - else
               %p.itemBox__next-btn
                 SOLD OUT     
-      %ul.links
-        %li.links__left
-          商品
-          = link_to item_path, class: "links__left--leftpath" do
-            = icon('fa', 'angle-left')
-            %span
-            前の商品
-        %li.links__right
-          = link_to item_path, class: "links__right--rightpath" do
-            =icon('fa', 'angle-right')
-            %span 後の商品
       .relatedItems
         = link_to "/" , class: "relatedItems__Itemsinfo" do
           トップページに戻る
