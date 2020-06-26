@@ -1,10 +1,15 @@
 # README
 
 <h1 align="center">フリーマーケットサイト</h1>
-
 - メルカリクローンのフリーマーケットサイトです。
 - TECH::CAMP 76期短期集中コースAチームで作成。
 - 作成期間 2020/6/2 ~ 2020/6/23
+
+## サイトURL紹介
+- ユーザー名: ks0112
+- パスワード: sibuya_76a
+- IPアドレス:http://3.115.42.47/
+
 ![image](https://user-images.githubusercontent.com/64839248/85387107-6056d980-b57f-11ea-9802-63c2959e800a.png)
 ![image](https://user-images.githubusercontent.com/64839248/85387281-94ca9580-b57f-11ea-886c-df18d050cfe4.png)
 ## :paperclip: 主な使用言語
@@ -35,11 +40,6 @@
 - 商品一覧表示機能
 - マイページ機能
 - pay.jpのapiを用いたクレジットカード登録・削除機能 & 商品購入機能
-
-## サイトURL紹介
-- ユーザー名: ks0112
-- パスワード: sibuya_76a
-- IPアドレス:http://3.115.42.47/
 
 # :page_facing_up: DB設計
 
