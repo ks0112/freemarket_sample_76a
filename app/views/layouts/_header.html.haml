@@ -26,7 +26,7 @@
                           %li.grandchild
                             = link_to "#{grandchild.name}", select_category_index_items_path(grandchild.id), class: "category__grandchild--name",id: "#{grandchild.id}"
         .main-header__inner__nav__listleft__item
-          = link_to "ブランド"
+          -# = link_to "ブランド"
         %ul.brandsPulldown.displayNone
       %ul.main-header__inner__nav__listright
         - if user_signed_in?
