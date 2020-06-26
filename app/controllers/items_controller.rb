@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
 
   def search
     @parents = Category.where(ancestry: nil)
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:keyword]).order("created_at DESC")
   end
 
   def p_exhibiting #出品中のアクション
