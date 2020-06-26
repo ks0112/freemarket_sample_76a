@@ -20,7 +20,7 @@ class PurchasesController < ApplicationController
       redirect_to new_destination_path
     elsif card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_card_path, data: { turbolinks: false}
+      redirect_to new_card_path
     else
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     #保管した顧客IDでpayjpから情報取得
