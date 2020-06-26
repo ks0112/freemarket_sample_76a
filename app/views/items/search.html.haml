@@ -1,6 +1,8 @@
 = render 'layouts/header'
 .search
   .searchfield
+    - if @items.blank?
+      %span 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
   - @items.each do |item|
     .searchitem
       .searchitem__body
