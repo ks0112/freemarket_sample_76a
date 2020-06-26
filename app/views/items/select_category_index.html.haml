@@ -3,7 +3,11 @@
   .searchfield
     「
     = @category.name
-    」の検索結果一覧
+    」の検索結果
+    - if @items.blank?
+      %span
+      %br/
+      該当する商品が見つかりません。検索条件を変えて、再度お試しください。
   - @items.each do |item|
     .searchitem
       .searchitem__body
