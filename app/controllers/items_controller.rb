@@ -148,7 +148,7 @@ class ItemsController < ApplicationController
       # @items = []
       # # find_itemメソッドで処理
       # find_item(category.id)
-      @items = Item.where(category_id: category)
+      @items = Item.where(category_id: category).order("created_at DESC")
       # if @items.blank?
       #   redirect_to root_path
       # end
@@ -158,7 +158,7 @@ class ItemsController < ApplicationController
     # 孫カテゴリーを選択していた場合の処理
     elsif @category.ancestry.include?("/")
       # Categoryモデル内の親カテゴリーに紐づく孫カテゴリーのidを取得
-      @items = Item.where(category_id: params[:format])
+      @items = Item.where(category_id: params[:format]).order("created_at DESC")
       # if @items.blank?
       #   redirect_to root_path
       # end
@@ -167,7 +167,7 @@ class ItemsController < ApplicationController
     else
       category = Category.find_by(id: params[:format]).child_ids
       # 孫カテゴリーに該当するitemsテーブルのレコードを入れるようの配列を用意
-      @items = Item.where(category_id: category)
+      @items = Item.where(category_id: category).order("created_at DESC")
       # @items = []
       # # find_itemメソッドで処理
       # find_item(category)
