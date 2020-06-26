@@ -196,7 +196,6 @@
 .main-header__inner__nav{
   font-size: 14px;
   display: flex;
-  // margin-bottom: 10px;
 }
 
 .main-header__inner__nav__listleft__item a{
@@ -220,7 +219,7 @@
   display: flex;
   &__item{
     color: #333;
-    line-height: 38px;
+    line-height: 32px;
     padding: 0 0 0 16px;
     // & a{
   // width:100%;
@@ -238,6 +237,10 @@
   //     text-decoration: none;
   //     line-height: 32px;
     // }
+  }
+  &__item a{
+    text-decoration: none;
+    color: black;
   }
 }
 
